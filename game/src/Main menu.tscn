@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="Main menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -505.5
+margin_top = -295.0
+margin_right = 505.5
+margin_bottom = 295.0
+text = "Hello World
+Yes I am Godot"
+align = 1
+valign = 1
