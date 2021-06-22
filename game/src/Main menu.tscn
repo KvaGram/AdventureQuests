@@ -14,6 +14,14 @@ margin_top = -295.0
 margin_right = 505.5
 margin_bottom = 295.0
 text = "Hello World
-Yes I am Godot"
+Hello github pages
+I am here. I am here to do quests.
+
+The Tenebrae adventure quests.
+Coming soon.
+Hopefully."
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
