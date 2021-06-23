@@ -11,11 +11,9 @@ func _ready():
 	textline = get_node("testsave/textline")
 
 func save():
-	Global.playername = textline.text #test
 	Global.saveData()
 func load():
 	Global.loadData()
-	textline.text = Global.playername #test
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

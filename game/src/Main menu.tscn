@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/PlayerPanel.gd" type="Script" id=2]
+[ext_resource path="res://src/bundleImage.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -10,19 +12,31 @@ func _ready():
 	pass
 "
 
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 160, 160 )
+
 [node name="Main menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_right = 1.0
+margin_left = 0.0561218
+margin_top = 1.88777
+margin_right = 0.0561523
+margin_bottom = 1.88776
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 242.0
-margin_bottom = 116.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -121.0
+margin_top = -58.0
+margin_right = 121.0
+margin_bottom = 58.0
 text = "Hello World
 Hello github pages
 I am here. I am here to do quests.
@@ -41,54 +55,245 @@ __meta__ = {
 ]]
 script = SubResource( 1 )
 
-[node name="testsave" type="Panel" parent="."]
-margin_left = 27.0
-margin_top = 170.0
-margin_right = 373.0
-margin_bottom = 292.0
+[node name="Player panel" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.001
+anchor_right = 0.001
+margin_left = 6.20049
+margin_top = 362.25
+margin_right = 366.201
+margin_bottom = 593.25
+window_title = "PLAYER DATA"
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="textline" type="LineEdit" parent="testsave"]
-anchor_top = 0.5
+[node name="VBoxContainer" type="VBoxContainer" parent="Player panel"]
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -12.0
-margin_bottom = 12.0
-text = "(write here)"
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="testsave"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -156.0
-margin_right = 156.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Player panel/VBoxContainer"]
+margin_right = 352.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label2" type="Label" parent="Player panel/VBoxContainer/HBoxContainer"]
+margin_left = 3.0
+margin_top = 5.0
+margin_right = 45.0
+margin_bottom = 19.0
+text = "Name:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Player panel/VBoxContainer/HBoxContainer"]
+margin_left = 49.0
+margin_right = 349.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 300, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Player panel/VBoxContainer"]
+margin_top = 28.0
+margin_right = 352.0
+margin_bottom = 42.0
+text = "Inventory"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Player panel/VBoxContainer"]
+margin_top = 46.0
+margin_right = 352.0
+margin_bottom = 202.0
+custom_constants/vseparation = 6
+custom_constants/hseparation = 11
+columns = 6
+
+[node name="itemslot" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_right = 48.0
 margin_bottom = 48.0
-text = "Test save / load
-Write something here, and click save
-Then refresh of your browser page, and click load"
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot2" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 59.0
+margin_right = 107.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot3" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 118.0
+margin_right = 166.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot4" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 177.0
+margin_right = 225.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot5" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 236.0
+margin_right = 284.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot6" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 295.0
+margin_right = 343.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot7" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_top = 54.0
+margin_right = 48.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot8" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 59.0
+margin_top = 54.0
+margin_right = 107.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot9" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 118.0
+margin_top = 54.0
+margin_right = 166.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot10" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 177.0
+margin_top = 54.0
+margin_right = 225.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot11" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 236.0
+margin_top = 54.0
+margin_right = 284.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot12" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 295.0
+margin_top = 54.0
+margin_right = 343.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot13" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_top = 108.0
+margin_right = 48.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot14" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 59.0
+margin_top = 108.0
+margin_right = 107.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot15" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 118.0
+margin_top = 108.0
+margin_right = 166.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot16" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 177.0
+margin_top = 108.0
+margin_right = 225.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot17" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 236.0
+margin_top = 108.0
+margin_right = 284.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="itemslot18" type="Panel" parent="Player panel/VBoxContainer/GridContainer"]
+margin_left = 295.0
+margin_top = 108.0
+margin_right = 343.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 48, 48 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="button bar" type="Panel" parent="."]
+anchor_right = 1.0
+rect_min_size = Vector2( 100, 32 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="button bar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.943878
+margin_right = 0.943848
+
+[node name="MenuButton" type="Button" parent="button bar/HBoxContainer"]
+margin_right = 145.0
+margin_bottom = 32.0
+text = "Open Player Window"
+
+[node name="save" type="Button" parent="button bar/HBoxContainer"]
+margin_left = 149.0
+margin_right = 192.0
+margin_bottom = 32.0
+text = "SAVE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="save" type="Button" parent="testsave"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -51.0
-margin_right = 127.0
-text = "SAVE"
-
-[node name="load" type="Button" parent="testsave"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -127.0
-margin_top = -51.0
+[node name="load" type="Button" parent="button bar/HBoxContainer"]
+margin_left = 196.0
+margin_right = 245.0
+margin_bottom = 32.0
 text = "LOAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[connection signal="pressed" from="testsave/save" to="." method="save"]
-[connection signal="pressed" from="testsave/load" to="." method="load"]
+[connection signal="about_to_show" from="Player panel" to="Player panel" method="populate"]
+[connection signal="text_changed" from="Player panel/VBoxContainer/HBoxContainer/LineEdit" to="Player panel" method="updatePlayername"]
+[connection signal="pressed" from="button bar/HBoxContainer/MenuButton" to="Player panel" method="onShow"]
+[connection signal="pressed" from="button bar/HBoxContainer/save" to="." method="save"]
+[connection signal="pressed" from="button bar/HBoxContainer/load" to="." method="load"]
