@@ -1,2 +1,0 @@
-﻿42397
-/home/kvagram/programs/Godot_engine/Godot_v3.3.2-stable_mono_x11.64
