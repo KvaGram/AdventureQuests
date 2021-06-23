@@ -1,18 +1,25 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Main.cs" type="Script" id=1]
 
 [node name="Main menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -505.5
+margin_left = -508.0
 margin_top = -295.0
-margin_right = 505.5
-margin_bottom = 295.0
+margin_right = -156.0
+margin_bottom = -116.0
 text = "Hello World
 Hello github pages
 I am here. I am here to do quests.
@@ -25,3 +32,48 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Testarea" type="LineEdit" parent="."]
+margin_left = 30.0
+margin_top = 220.0
+margin_right = 174.0
+margin_bottom = 269.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 31.0
+margin_top = 182.0
+margin_right = 157.0
+margin_bottom = 207.0
+text = "Test save / load
+Write something here"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 29.0
+margin_top = 277.0
+margin_right = 99.0
+margin_bottom = 303.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 108.0
+margin_top = 276.0
+margin_right = 178.0
+margin_bottom = 302.0
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gamedata" type="Node" parent="." groups=[
+"savedata",
+]]
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="Button" to="Gamedata" method="Save"]
+[connection signal="pressed" from="Button2" to="Gamedata" method="Load"]
