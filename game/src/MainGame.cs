@@ -4,17 +4,27 @@ using NodeCollection = Godot.Collections.Array;
 using SaveDataObject = Godot.Collections.Dictionary<string, object>;
 using SaveDataEntry = System.Collections.Generic.KeyValuePair<string, object>;
 
-public class Gamedata : Node
+public class MainGame : Node
 {
+    private GameData data;
     const string SAVEFILE_NAME = "tenebrae_quests";
 
     public override void _Ready()
     {
+        data = GameData.DATA;
         LoadGame();
+
+        //test feature:
+        GD.Print("linetext: "  + data.lineText);
+        GetNode<LineEdit>("Testsave").Text = data.lineText;
     }
 
     public void SaveGame()
     {
+        //first save main data
+        data.SaveGameData();
+
+        //now save aux data
         File savefile = new File();
         savefile.Open("user://"+SAVEFILE_NAME+".save", File.ModeFlags.Write);
         NodeCollection savenodes = GetTree().GetNodesInGroup("savedata");
@@ -37,10 +47,14 @@ public class Gamedata : Node
     }
     public void LoadGame()
     {
+        //first load main data
+        data.LoadGameData();
+
+        //now load aux data
         File savefile = new File();
         if(!savefile.FileExists("user://"+SAVEFILE_NAME+".save"))
         {
-            GD.Print("No save data detected. Exiting LoadGame function");
+            GD.Print("No aux save data detected. Exiting LoadGame function");
             return;
         }
         NodeCollection savenodes = GetTree().GetNodesInGroup("savedata");
