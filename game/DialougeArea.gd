@@ -54,7 +54,7 @@ func load_dialogue():
 		hasAudio = true;
 	else:
 		hasAudio = false;
-	$muteButton.visible = hasAudio
+	#$muteButton.visible = hasAudio
 	
 func nextLine():
 	if(nextLineLegal()):
