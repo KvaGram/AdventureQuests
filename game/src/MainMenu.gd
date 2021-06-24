@@ -8,8 +8,9 @@ var textline;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	textline = get_node("testsave/textline")
-
+#	textline = get_node("testsave/textline")
+	pass
+	
 func save():
 	Global.saveData()
 func load():
