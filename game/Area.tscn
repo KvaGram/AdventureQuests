@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
+[ext_resource path="res://src/areas/unknown/unknown.mp3" type="AudioStream" id=2]
 [ext_resource path="res://DialougeArea.gd" type="Script" id=3]
 [ext_resource path="res://src/Dialouge chat box.png" type="Texture" id=4]
 
@@ -66,5 +67,8 @@ text = "--->"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DialogueAudio" type="AudioStreamPlayer" parent="Dialouge area"]
+stream = ExtResource( 2 )
 
 [connection signal="pressed" from="Dialouge area/Dialouge box/NextButton" to="Dialouge area" method="nextLine"]

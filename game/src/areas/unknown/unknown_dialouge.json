@@ -1,4 +1,9 @@
-[
-	{"name" : "KvaGram the Questduck", "text" : "Well.. it looks like you have gotten yourself lost, friend. Maybe you typed in the wrong passkey, or maybe you just opened this program, and this is a huge suprise to you. So why don't you hit that 'Go to Location' button up there in the corner, and try again?"},
-	{"name" : "KvaGram the Questduck", "text" : "...Go on. I don't know why you are still here. There really isen't anything for you to do here."}
-]
+{	"audio": "res://src/areas/unknown/unknown.mp3", "tracks" : [{"start Time":0.377723,"end Time":18.272371,"label":""},{"start Time":19.83048,"end Time":27.125,"label":""}],
+	"dialogue" : [{
+"name" : "KvaGram the Questduck",
+"text" : "Well.. it looks like you have gotten yourself lost, friend. Maybe you typed in the wrong passkey, or maybe you just opened this program, and this is a huge suprise to you. So why don't you hit that 'Go to Location' button up there in the corner, and try again?"},
+
+{"name" : "KvaGram the Questduck",
+"text" : "...Go on. I don't know why you are still here. There really isen't anything for you to do here."}
+
+]}
