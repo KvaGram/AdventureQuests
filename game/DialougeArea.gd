@@ -6,9 +6,12 @@ var dialogues =  []
 var audiotracks = []
 var currentLine = 0;
 var hasAudio = false;
-
+var isMute = false;
 
 func _ready():
+	if OS.is_class("HTML5"):
+		set_mute(true);
+		$muteButton.pressed = true;
 	play();
 func _process(_delta):
 	if hasAudio && $DialogueAudio.get_playback_position() > audiotracks[currentLine]["end Time"]:
@@ -19,7 +22,7 @@ func playline(line):
 	currentLine = line
 	$"Dialouge box/Character name".text = dialogues[line]["name"]
 	$"Dialouge box/Dialouge".text = dialogues[line]["text"]
-	if hasAudio && line < audiotracks.size():
+	if !isMute && hasAudio && line < audiotracks.size():
 		$DialogueAudio.play(audiotracks[line]["start Time"])
 
 	
@@ -51,8 +54,7 @@ func load_dialogue():
 		hasAudio = true;
 	else:
 		hasAudio = false;
-	
-	
+	$muteButton.visible = hasAudio
 	
 func nextLine():
 	if(nextLineLegal()):
@@ -62,3 +64,10 @@ func nextLineLegal():
 	if(dialogues.size() <= currentLine+1):
 		return false
 	return true
+
+#when muting or unmuting stop any audio, then restart current line.
+func set_mute(muteval):
+	isMute = muteval
+	$DialogueAudio.stop()
+	playline(currentLine)
+	

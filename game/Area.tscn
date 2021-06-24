@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
 [ext_resource path="res://src/areas/unknown/unknown.mp3" type="AudioStream" id=2]
 [ext_resource path="res://DialougeArea.gd" type="Script" id=3]
 [ext_resource path="res://src/Dialouge chat box.png" type="Texture" id=4]
+[ext_resource path="res://src/SoundIconMute.png" type="Texture" id=5]
+[ext_resource path="res://src/SoundIconPlay.png" type="Texture" id=6]
 
 [node name="Area" type="Control"]
 margin_top = 36.0
@@ -71,4 +73,18 @@ __meta__ = {
 [node name="DialogueAudio" type="AudioStreamPlayer" parent="Dialouge area"]
 stream = ExtResource( 2 )
 
+[node name="muteButton" type="TextureButton" parent="Dialouge area"]
+margin_left = 4.1684
+margin_top = 474.888
+margin_right = 37.1684
+margin_bottom = 512.888
+toggle_mode = true
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Dialouge area/Dialouge box/NextButton" to="Dialouge area" method="nextLine"]
+[connection signal="toggled" from="Dialouge area/muteButton" to="Dialouge area" method="set_mute"]
