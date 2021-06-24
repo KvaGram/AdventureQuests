@@ -11,11 +11,16 @@ func _ready():
 	pass # Replace with function body.
 
 func populate():
-	get_node("VBoxContainer/HBoxContainer/LineEdit").text = Global.playername
-
-func updatePlayername(newname):
-	Global.playername = newname
-
+	pass
+	#get_node("VBoxContainer/HBoxContainer/LineEdit").text = Global.playername
 
 func onShow():
 	popup_centered_minsize(Vector2(100, 100))
+
+#func updatePlayername(newname):
+#	Global.playername = newname
+	
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
