@@ -47,14 +47,14 @@ func load_dialogue():
 	d_file.open(dialogueFile, File.READ)
 	var data = parse_json(d_file.get_as_text())
 	dialogues = data["dialogue"]
-	if data.has("audio") && data.has("tracks") && File.new().file_exists(data["audio"]):
+	if data.has("audio") && data.has("tracks") && ResourceLoader.exists(data["audio"]): #File.new().file_exists(data["audio"]):
 		audiotracks = data["tracks"]
-		var newAudio = load(data["audio"])
+		var newAudio = ResourceLoader.load(data["audio"]); #load(data["audio"])
 		$DialogueAudio.stream = newAudio
 		hasAudio = true;
 	else:
 		hasAudio = false;
-	#$muteButton.visible = hasAudio
+	$muteButton.visible = hasAudio
 	
 func nextLine():
 	if(nextLineLegal()):
