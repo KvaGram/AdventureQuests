@@ -1,5 +1,12 @@
 # Welcome to Tenebrae Adventure guild quests ONLINE
 
+##My todo list
+* program the add item event feature
+* design and program the set variable feature
+* design and program the item condition feature
+* design and program the variable condition feature
+
+
 ## Here to help?
 ### How to add audio to a dialogue
 
