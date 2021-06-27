@@ -29,6 +29,35 @@ margin_bottom = 640.0
 rect_min_size = Vector2( 100, 100 )
 script = ExtResource( 4 )
 
+[node name="Load_Dialogue" type="FileDialog" parent="HBoxContainer/Dialogue_edit_file_ops"]
+visible = true
+margin_left = -559.444
+margin_top = 151.835
+margin_right = -115.444
+margin_bottom = 281.835
+window_title = "Load_Dialogue"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.book.tres" )
+current_dir = "/home/kvagram/Documents/projects/AdventureQuests/game"
+current_path = "/home/kvagram/Documents/projects/AdventureQuests/game/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save_Dialogue" type="FileDialog" parent="HBoxContainer/Dialogue_edit_file_ops"]
+visible = true
+margin_left = -560.0
+margin_top = 321.0
+margin_right = -116.0
+margin_bottom = 451.0
+window_title = "Save Dialogue"
+resizable = true
+access = 2
+current_dir = "/home/kvagram/Documents/projects/AdventureQuests/game"
+current_path = "/home/kvagram/Documents/projects/AdventureQuests/game/"
+
 [node name="File operations" type="VBoxContainer" parent="HBoxContainer/Dialogue_edit_file_ops"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -53,31 +82,6 @@ margin_top = 48.0
 margin_right = 100.0
 margin_bottom = 68.0
 text = "Save External"
-
-[node name="Load_Dialogue" type="FileDialog" parent="HBoxContainer/Dialogue_edit_file_ops"]
-margin_top = 72.0
-margin_right = 444.0
-margin_bottom = 202.0
-window_title = "Open a File"
-resizable = true
-mode = 0
-access = 2
-filters = PoolStringArray( "talk.tres" )
-current_dir = "/home/kvagram/Documents/projects/AdventureQuests/game"
-current_path = "/home/kvagram/Documents/projects/AdventureQuests/game/"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Save_Dialogue" type="FileDialog" parent="HBoxContainer/Dialogue_edit_file_ops"]
-margin_top = 206.0
-margin_right = 444.0
-margin_bottom = 336.0
-window_title = "Save Dialogue"
-resizable = true
-access = 2
-current_dir = "/home/kvagram/Documents/projects/AdventureQuests/game"
-current_path = "/home/kvagram/Documents/projects/AdventureQuests/game/"
 
 [node name="Dialouge Inner editor" type="TabContainer" parent="HBoxContainer"]
 margin_left = 104.0
@@ -283,13 +287,15 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[connection signal="file_selected" from="HBoxContainer/Dialogue_edit_file_ops/Load_Dialogue" to="HBoxContainer/Dialogue_edit_file_ops" method="_on_Load_Dialogue_file_selected"]
+[connection signal="file_selected" from="HBoxContainer/Dialogue_edit_file_ops/Save_Dialogue" to="HBoxContainer/Dialogue_edit_file_ops" method="_on_Save_Dialogue_file_selected"]
 [connection signal="pressed" from="HBoxContainer/Dialogue_edit_file_ops/File operations/New Dialogue" to="HBoxContainer/Dialogue_edit_file_ops" method="_on_New_Dialogue_pressed"]
 [connection signal="pressed" from="HBoxContainer/Dialogue_edit_file_ops/File operations/Load External" to="HBoxContainer/Dialogue_edit_file_ops" method="_on_Load_External_pressed"]
 [connection signal="pressed" from="HBoxContainer/Dialogue_edit_file_ops/File operations/Save External" to="HBoxContainer/Dialogue_edit_file_ops" method="_on_Save_External_pressed"]
-[connection signal="file_selected" from="HBoxContainer/Dialogue_edit_file_ops/Save_Dialogue" to="HBoxContainer/Dialogue_edit_file_ops" method="_on_Save_Dialogue_file_selected"]
 [connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Editor/VBoxContainer/Dialogue editor panel/Controller/prev" to="HBoxContainer/Dialouge Inner editor" method="_on_prev_line"]
 [connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Editor/VBoxContainer/Dialogue editor panel/Controller/next" to="HBoxContainer/Dialouge Inner editor" method="_on_next_line"]
 [connection signal="text_changed" from="HBoxContainer/Dialouge Inner editor/Editor/VBoxContainer/Dialogue editor panel/VBoxContainer/Character_name" to="HBoxContainer/Dialouge Inner editor" method="_on_Character_name_text_changed"]
 [connection signal="text_changed" from="HBoxContainer/Dialouge Inner editor/Editor/VBoxContainer/Dialogue editor panel/VBoxContainer/Dialogue_box" to="HBoxContainer/Dialouge Inner editor" method="_on_Dialouge_text_changed"]
+[connection signal="text_changed" from="HBoxContainer/Dialouge Inner editor/Editor/VBoxContainer/Dialogue editor panel/Aux data/Tag/TagName" to="HBoxContainer/Dialouge Inner editor" method="_on_TagName_text_changed"]
 [connection signal="value_changed" from="HBoxContainer/Dialouge Inner editor/Editor/VBoxContainer/Dialogue editor panel/Aux data/HBoxContainer/audio_start_at" to="HBoxContainer/Dialouge Inner editor" method="_on_audio_start_at_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/Dialouge Inner editor/Editor/VBoxContainer/Dialogue editor panel/Aux data/HBoxContainer/audio_end_at" to="HBoxContainer/Dialouge Inner editor" method="_on_audio_end_at_value_changed"]
