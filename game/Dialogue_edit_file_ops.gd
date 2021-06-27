@@ -18,12 +18,12 @@ func _ready():
 func _on_Save_External_pressed():
 	var data:DialogueData = $"../Dialouge Inner editor".dialogue
 	$Save_Dialogue.filename = data.name
-	$Save_Dialogue.popup_centered_minsize(Vector2(300, 300))
+	$Save_Dialogue.popup_centered_minsize(Vector2(500, 500))
 
 #TODO: add warning
 # load a dialogue object from file
 func _on_Load_External_pressed():
-	$Load_Dialogue.popup_centered_minsize(Vector2(300, 300))
+	$Load_Dialogue.popup_centered_minsize(Vector2(500, 500))
 
 
 #TODO: add warning.
@@ -41,5 +41,5 @@ func _on_Save_Dialogue_file_selected(path):
 
 
 func _on_Load_Dialogue_file_selected(path):
-	var data = ResourceLoader.load(path, "DialogueData")
+	var data = ResourceLoader.load(path)
 	$"../Dialouge Inner editor".open_dialogue(data)

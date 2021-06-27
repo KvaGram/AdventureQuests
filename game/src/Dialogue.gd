@@ -8,6 +8,8 @@ export var conditions = []
 #Name to display, if ever needed to select from a list
 export var name = ""
 
+export var audio:AudioStream
+
 func addLine():
 	var newline = {}
 	newline["name"] = ""

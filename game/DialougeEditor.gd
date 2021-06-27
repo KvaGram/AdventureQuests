@@ -92,3 +92,44 @@ func _on_audio_end_at_value_changed(value):
 
 func _on_TagName_text_changed(new_text):
 	dialogue.lines[line_index]["tag"] = new_text
+
+
+func _on_LoadAudio_file_selected(path):
+	pass
+#	var file:File = File.new()
+#	var err = file.open(path, File.READ)
+#	if(err != OK):
+#		print("Error loading audio file. Code: " + err)
+#		file.close()
+#		return
+#	var bytes = file.get_buffer(file.get_len())
+#
+#
+#	var audio = ResourceLoader.load(path, "AudioStream");
+#	if(audio):
+#		$"Settings/VBoxContainer/HBoxContainer2/AudioPath".text = path
+#		dialogue.audio = audio;
+#		$TestaudioPlayer.stream = audio;
+
+
+func _on_LoadAudiofile_pressed():
+	#$"Settings/LoadAudio".popup_centered_minsize(Vector2(500, 500))
+	pass # Replace with function body.
+
+var playto = 0.0;
+func _on_TestAudioFull_pressed():
+	if (dialogue.audio):
+		playto = $TestaudioPlayer.stream.get_length()
+		$TestaudioPlayer.play()
+func _on_AudioStop_pressed():
+	$TestaudioPlayer.stop()
+
+
+func _on_TestAudioLine_pressed():
+	if (dialogue.audio):
+		var start = dialogue.lines[line_index]["audio_start"]
+		playto = dialogue.lines[line_index]["audio_end"]
+		$TestaudioPlayer.play(start)
+func _process(_delta):
+	if($TestaudioPlayer.is_playing() && $TestaudioPlayer.get_playback_position() > playto):
+		$TestaudioPlayer.stop()
