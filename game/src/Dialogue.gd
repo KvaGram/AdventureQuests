@@ -1,18 +1,20 @@
 extends Resource
+class_name DialogueData
 
-#dialouge lines
-var lines := []
+#dialogue lines
+export var lines := []
 #conditions for showing this dialogue
-var conditions := []
+export var conditions := []
 #Name to display, if ever needed to select from a list
-var name = ""
+export var name = ""
 
-class line:
+class Line:
 	var name := ""
 	var text := ""
 	var actions := []
 	var tag := ""
-	
+	var audio_start := 0.0
+	var audio_end := 0.0
 #used for both adding items, and checking if player have items
 class ItemAction:
 	var add := true
