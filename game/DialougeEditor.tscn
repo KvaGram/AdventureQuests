@@ -90,16 +90,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Tabs" parent="HBoxContainer/Dialouge Inner editor"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-
 [node name="Editor" type="Tabs" parent="HBoxContainer/Dialouge Inner editor"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -282,6 +273,15 @@ margin_bottom = 24.0
 
 [node name="Add or Remove item" parent="HBoxContainer/Dialouge Inner editor/Editor/VBoxContainer/Add action menu/Set variable/EventPanel container" instance=ExtResource( 2 )]
 margin_right = 127.0
+
+[node name="Settings" type="Tabs" parent="HBoxContainer/Dialouge Inner editor"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [connection signal="pressed" from="HBoxContainer/Dialogue_edit_file_ops/File operations/New Dialogue" to="HBoxContainer/Dialogue_edit_file_ops" method="_on_New_Dialogue_pressed"]
 [connection signal="pressed" from="HBoxContainer/Dialogue_edit_file_ops/File operations/Load External" to="HBoxContainer/Dialogue_edit_file_ops" method="_on_Load_External_pressed"]

@@ -26,7 +26,7 @@ func refresh():
 	#If at index 0, or somehow below, prev button is disabled
 	$"Editor/VBoxContainer/Dialogue editor panel/Controller/prev".disabled = line_index <= 0
 	#If at last line, or somehow beyond, and body text is empty, next button is disabled.
-	$"Editor/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index >= dialogue.lines.size() && line.text.empty()
+	$"Editor/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && line.text.empty()
 	
 	#Todo: populate actions and choices
 func open_dialogue(data):
@@ -68,6 +68,7 @@ func _on_next_line():
 	#If line index is now boyond the last line, add a new line
 	if(line_index >= dialogue.lines.size()):
 		dialogue.lines.append(DialogueData.Line.new())
+	refresh()
 
 func _on_Character_name_text_changed(new_name):
 	dialogue.lines[line_index].name = new_name
@@ -76,6 +77,7 @@ func _on_Character_name_text_changed(new_name):
 func _on_Dialouge_text_changed():
 	var text = $"Editor/VBoxContainer/Dialogue editor panel/VBoxContainer/Dialogue_box".text
 	dialogue.lines[line_index].text = text
+	$"Editor/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && text.empty()
 
 func _on_audio_start_at_value_changed(value):
 	dialogue.lines[line_index].audio_start = value
