@@ -29,13 +29,25 @@ func refresh():
 	#If at last line, or somehow beyond, and body text is empty, next button is disabled.
 	$"Editor/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && line["text"].empty()
 	
+func _on_Load_Audacity_labels_pressed():
+	var labels = $Settings/VBoxContainer/wildText.text.split("/n", false)
+	var numLines = labels.size()
+	for i in numLines:
+		if(i >= dialogue.lines.size()):
+			break
+		var vals = labels[i].split(" ", false)
+		dialogue.lines[i]["audio_start"] = float(vals[0])
+		dialogue.lines[i]["audio_end"] = float(vals[1]) 
 	
+
+
 	
 	#Todo: populate actions and choices
 func open_dialogue(data):
 	if(data is DialogueData):
 		line_index = 0
 		dialogue = data
+		$TestaudioPlayer.stream = data.audio;
 		refresh()
 		return
 	print("Attempted to load non-dialogue data. Ignored")
@@ -133,3 +145,6 @@ func _on_TestAudioLine_pressed():
 func _process(_delta):
 	if($TestaudioPlayer.is_playing() && $TestaudioPlayer.get_playback_position() > playto):
 		$TestaudioPlayer.stop()
+
+
+

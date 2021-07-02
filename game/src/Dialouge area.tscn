@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/SoundIconPlay.png" type="Texture" id=1]
-[ext_resource path="res://DialougeArea.gd" type="Script" id=2]
-[ext_resource path="res://src/Dialouge chat box.png" type="Texture" id=3]
-[ext_resource path="res://src/SoundIconMute.png" type="Texture" id=4]
-[ext_resource path="res://src/areas/unknown/unknown.mp3" type="AudioStream" id=5]
+[ext_resource path="res://src/DialougeArea.gd" type="Script" id=1]
+[ext_resource path="res://src/SoundIconMute.png" type="Texture" id=2]
+[ext_resource path="res://src/areas/unknown/unknown.mp3" type="AudioStream" id=3]
+[ext_resource path="res://src/SoundIconPlay.png" type="Texture" id=4]
+[ext_resource path="res://src/Dialouge chat box.png" type="Texture" id=5]
 
 [node name="Dialouge area" type="CanvasLayer"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 dialogueFile = "res://src/areas/unknown/unknown_dialouge.json"
 
 [node name="Dialouge box" type="NinePatchRect" parent="."]
@@ -18,7 +18,7 @@ margin_left = -0.141418
 margin_top = -88.1943
 margin_right = -0.141418
 margin_bottom = -11.1943
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 region_rect = Rect2( -1.31653, -1.51913, 601.766, 451.874 )
 patch_margin_left = 37
 patch_margin_top = 40
@@ -60,7 +60,7 @@ __meta__ = {
 }
 
 [node name="DialogueAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 3 )
 
 [node name="muteButton" type="TextureButton" parent="."]
 margin_left = 4.1684
@@ -68,8 +68,8 @@ margin_top = 474.888
 margin_right = 37.1684
 margin_bottom = 512.888
 toggle_mode = true
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,0 +1,53 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://src/DialogueData.gd" type="Script" id=1]
+[ext_resource path="res://src/areas/unknown/unknown.mp3" type="AudioStream" id=2]
+
+[resource]
+script = ExtResource( 1 )
+lines = [ {
+"actions": [  ],
+"audio_end": 18.3,
+"audio_start": 0.4,
+"choices": [  ],
+"name": "KvaGram the Questduck",
+"tag": "",
+"text": "Well.. he he..  it looks like you may have gotten yourself lost, friend.
+Maybe you typed in the wrong passkey, or maybe you just opened this program,
+and this is a huge suprise to you.
+So why don't you hit that 'Go to Location' button up there in the corner,
+and try again?"
+}, {
+"actions": [  ],
+"audio_end": 27.1,
+"audio_start": 19.8,
+"choices": [  ],
+"name": "KvaGram the Questduck",
+"tag": "",
+"text": "...Go on. I don't know why you are still here.
+There really isen't anything for you to do here."
+} ]
+conditions = [ {
+"actions": [  ],
+"audio_end": 0.0,
+"audio_start": 0.0,
+"choices": [  ],
+"name": "KvaGram the Questduck",
+"tag": "",
+"text": "Well.. it looks like you have gotten yourself lost, friend.
+Maybe you typed in the wrong passkey, or maybe you just opened this program,
+and this is a huge suprise to you.
+So why don't you hit that 'Go to Location' button up there in the corner,
+and try again?"
+}, {
+"actions": [  ],
+"audio_end": 0.0,
+"audio_start": 0.0,
+"choices": [  ],
+"name": "KvaGram the Questduck",
+"tag": "",
+"text": "...Go on. I don't know why you are still here.
+There really isen't anything for you to do here."
+} ]
+name = "Unknown book"
+audio = ExtResource( 2 )

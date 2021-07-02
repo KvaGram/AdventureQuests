@@ -16,7 +16,7 @@ func addLine():
 	newline["text"] = ""
 	newline["tag"] = ""
 	newline["audio_start"] = 0.0
-	newline["audio_end"] = 0.0
+	newline["audio_end"] = 0.0 
 	newline["actions"] = []
 	newline["choices"] = []
 	

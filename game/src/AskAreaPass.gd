@@ -26,5 +26,8 @@ func onShow():
 	popup();
 
 
-func onPassEntered(locpass):
+#Locpass is used in Area.LoadArea
+#This function only hides the panel.
+func onPassEntered(_locpass):
+	
 	visible = false;

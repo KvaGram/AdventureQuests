@@ -10,16 +10,28 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "AreaData",
+"language": "GDScript",
+"path": "res://AreaData.gd"
+}, {
+"base": "Resource",
+"class": "AreaList",
+"language": "GDScript",
+"path": "res://src/AreaList.gd"
+}, {
+"base": "Resource",
 "class": "DialogueData",
 "language": "GDScript",
-"path": "res://src/Dialogue.gd"
+"path": "res://src/DialogueData.gd"
 }, {
 "base": "TabContainer",
 "class": "DialogueEditor",
 "language": "GDScript",
-"path": "res://DialougeEditor.gd"
+"path": "res://src/editor/DialougeEditor.gd"
 } ]
 _global_script_class_icons={
+"AreaData": "",
+"AreaList": "",
 "DialogueData": "",
 "DialogueEditor": ""
 }
@@ -33,6 +45,10 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://src/Global.gd"
+
+[global]
+
+dropped=false
 
 [importer_defaults]
 
@@ -66,4 +82,4 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://src/default_env.tres"
