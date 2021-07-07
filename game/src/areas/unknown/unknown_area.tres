@@ -1,16 +1,7 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://AreaData.gd" type="Script" id=1]
-[ext_resource path="res://src/DialogueData.gd" type="Script" id=2]
-[ext_resource path="res://src/areas/unknown/unknown.mp3" type="AudioStream" id=3]
-
-[sub_resource type="Resource" id=3]
-script = ExtResource( 2 )
-lines = [ {
-}, null ]
-conditions = [  ]
-name = "Welcome to unknown"
-audio = ExtResource( 3 )
+[ext_resource path="res://src/areas/unknown/unknown.book.tres" type="Resource" id=2]
 
 [sub_resource type="Image" id=4]
 data = {
@@ -21,7 +12,7 @@ data = {
 "width": 500
 }
 
-[sub_resource type="ImageTexture" id=2]
+[sub_resource type="ImageTexture" id=3]
 image = SubResource( 4 )
 size = Vector2( 500, 500 )
 
@@ -30,5 +21,5 @@ script = ExtResource( 1 )
 name = "Undefined place"
 code = "NONE"
 description = "Undefined place"
-default_backround = SubResource( 2 )
-books = [ SubResource( 3 ) ]
+default_backround = SubResource( 3 )
+books = [ ExtResource( 2 ) ]

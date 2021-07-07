@@ -41,7 +41,7 @@ func loadArea(a):
 		area = a
 	else:
 		printerr("Attempted to load non-AreaData")
-	$TextureRect.texture.create_from_image(area.default_backround)
+	$TextureRect.texture = area.default_backround
 	
 	var d:DialogueData = area.getDialogue()
 	$"Dialouge area".load_dialogue(d)
