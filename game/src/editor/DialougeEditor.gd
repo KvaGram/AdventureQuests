@@ -30,14 +30,27 @@ func refresh():
 	$"Editor/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && line["text"].empty()
 	
 func _on_Load_Audacity_labels_pressed():
-	var labels = $Settings/VBoxContainer/wildText.text.split("/n", false)
-	var numLines = labels.size()
+	var input:TextEdit = $Settings/VBoxContainer/wildText
+	var numLines = input.get_line_count()
 	for i in numLines:
-		if(i >= dialogue.lines.size()):
-			break
-		var vals = labels[i].split(" ", false)
+		var t = input.get_line(i)
+		var vals = KvaTools.nestedSplit(t, [" ","\t"])
+		if (vals.size() <= 2):
+			continue
+		#var vals = str(t.split(" ", false))
 		dialogue.lines[i]["audio_start"] = float(vals[0])
 		dialogue.lines[i]["audio_end"] = float(vals[1]) 
+	
+	
+	
+	#var input:String = $Settings/VBoxContainer/wildText.text
+	#var labels = input.split("/n", false)
+	#var numLines = labels.size()
+	#for i in numLines:
+	#	if(i >= dialogue.lines.size()):
+	#		break
+	#	
+
 	
 
 

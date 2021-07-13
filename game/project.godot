@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "DialogueEditor",
 "language": "GDScript",
 "path": "res://src/editor/DialougeEditor.gd"
+}, {
+"base": "Object",
+"class": "KvaTools",
+"language": "GDScript",
+"path": "res://KvaTools.gd"
 } ]
 _global_script_class_icons={
 "AreaData": "",
 "AreaList": "",
 "DialogueData": "",
-"DialogueEditor": ""
+"DialogueEditor": "",
+"KvaTools": ""
 }
 
 [application]
