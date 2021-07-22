@@ -120,25 +120,15 @@ func _on_TagName_text_changed(new_text):
 
 
 func _on_LoadAudio_file_selected(path):
-	pass
-#	var file:File = File.new()
-#	var err = file.open(path, File.READ)
-#	if(err != OK):
-#		print("Error loading audio file. Code: " + err)
-#		file.close()
-#		return
-#	var bytes = file.get_buffer(file.get_len())
-#
-#
-#	var audio = ResourceLoader.load(path, "AudioStream");
-#	if(audio):
-#		$"Settings/VBoxContainer/HBoxContainer2/AudioPath".text = path
-#		dialogue.audio = audio;
-#		$TestaudioPlayer.stream = audio;
+	var audio = ResourceLoader.load(path, "AudioStream");
+	if(audio):
+		$"Settings/VBoxContainer/HBoxContainer2/AudioPath".text = path
+		dialogue.audio = audio;
+		$TestaudioPlayer.stream = audio;
 
 
 func _on_LoadAudiofile_pressed():
-	#$"Settings/LoadAudio".popup_centered_minsize(Vector2(500, 500))
+	$"Settings/LoadAudio".popup_centered_minsize(Vector2(500, 500))
 	pass # Replace with function body.
 
 var playto = 0.0;
