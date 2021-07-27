@@ -14,20 +14,20 @@ func refresh():
 	if(dialogue.lines.size() <= 0):
 		line_index = 0
 		dialogue.addLine()
-	$"Editor/VBoxContainer/Dialogue editor panel/Controller/lineIndex".text = str(line_index)
+	$"Edit book/VBoxContainer/Dialogue editor panel/Controller/lineIndex".text = str(line_index)
 	if line_index >= dialogue.lines.size():
 		return
 	var line = dialogue.lines[line_index]
-	$"Editor/VBoxContainer/Dialogue editor panel/VBoxContainer/Character_name".text = line["name"]
-	$"Editor/VBoxContainer/Dialogue editor panel/VBoxContainer/Dialogue_box".text = line["text"]
-	$"Editor/VBoxContainer/Dialogue editor panel/Aux data/HBoxContainer/audio_start_at".value = line["audio_start"]
-	$"Editor/VBoxContainer/Dialogue editor panel/Aux data/HBoxContainer/audio_end_at".value = line["audio_end"]
-	$"Editor/VBoxContainer/Dialogue editor panel/Aux data/Tag/TagName".text = line["tag"]
+	$"Edit book/VBoxContainer/Dialogue editor panel/VBoxContainer/Character_name".text = line["name"]
+	$"Edit book/VBoxContainer/Dialogue editor panel/VBoxContainer/Dialogue_box".text = line["text"]
+	$"Edit book/VBoxContainer/Dialogue editor panel/Aux data/HBoxContainer/audio_start_at".value = line["audio_start"]
+	$"Edit book/VBoxContainer/Dialogue editor panel/Aux data/HBoxContainer/audio_end_at".value = line["audio_end"]
+	$"Edit book/VBoxContainer/Dialogue editor panel/Aux data/Tag/TagName".text = line["tag"]
 	
 	#If at index 0, or somehow below, prev button is disabled
-	$"Editor/VBoxContainer/Dialogue editor panel/Controller/prev".disabled = line_index <= 0
+	$"Edit book/VBoxContainer/Dialogue editor panel/Controller/prev".disabled = line_index <= 0
 	#If at last line, or somehow beyond, and body text is empty, next button is disabled.
-	$"Editor/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && line["text"].empty()
+	$"Edit book/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && line["text"].empty()
 	
 func _on_Load_Audacity_labels_pressed():
 	var input:TextEdit = $Settings/VBoxContainer/wildText

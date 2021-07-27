@@ -56,3 +56,4 @@ func _on_Save_Dialogue_file_selected(path:String):
 func _on_Load_Dialogue_file_selected(path):
 	var data = ResourceLoader.load(path)
 	$"../Dialouge Inner editor".open_dialogue(data)
+
