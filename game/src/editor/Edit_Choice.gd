@@ -1,27 +1,27 @@
 extends WindowDialog
-var itemVarFields = []
-var itemValFields = []
-var itemModmenus = []
+var attrVarFields = []
+var attrValFields = []
+var attrModmenus = []
 var index:int = -1 #index of selected item
 
 #name of choice
 var choiceName:String = "new choice"
 #list of items
-var choiceItems = []
+var choiceAttrs = []
 
 #TODO: add as support is added
 #TODO: move to KvaTools as a global constant
-const ITEM_TYPE_NAMES = PoolStringArray([
+const ATTR_TYPE_NAMES = PoolStringArray([
 	"Go to page",
 	"Variable condition",
 	"Set variable"
 	])
-const ITEM_TYPE_NAME_FORMATS = PoolStringArray([
+const ATTR_TYPE_NAME_FORMATS = PoolStringArray([
 	"Go to {var}",
 	"if {var} {mod_name} {val}",
 	"set {var} {mod_name} {val}"
 ])
-const ITEM_TYPE_MOD_NAME = [
+const ATTR_TYPE_MOD_NAME = [
 	["ERROR","ERROR","ERROR","ERROR"],
 	["==", "!=", "<=", ">="],
 	["=", "+=", "ERROR", "ERROR"]
@@ -32,54 +32,54 @@ const ITEM_TYPE_MOD_NAME = [
 func _ready():
 	#link the variable, value and mode fields
 	#get all edit choice item var fields members
-	itemVarFields = get_tree().get_nodes_in_group("e_c_itemVarFields")
-	itemValFields = get_tree().get_nodes_in_group("e_c_itemValFields")
-	itemModmenus  = get_tree().get_nodes_in_group("e_c_itemModmenus")
+	attrVarFields = get_tree().get_nodes_in_group("e_c_attrVarFields")
+	attrValFields = get_tree().get_nodes_in_group("e_c_attrValFields")
+	attrModmenus  = get_tree().get_nodes_in_group("e_c_attrModmenus")
 	
 	
-	for f in itemVarFields:
-		(f as LineEdit).connect("text_changed", self, "setItemVar", [f])
-	for f in itemValFields:
-		(f as LineEdit).connect("text_changed", self, "setItemVal", [f])
-	for f in itemModmenus:
-		(f as OptionButton).connect("item_selected", self, "setItemMode", [f])
+	for f in attrVarFields:
+		(f as LineEdit).connect("text_changed", self, "setAttrVar", [f])
+	for f in attrValFields:
+		(f as LineEdit).connect("text_changed", self, "setAttrVal", [f])
+	for f in attrModmenus:
+		(f as OptionButton).connect("item_selected", self, "setAttrMode", [f])
 		
 	refresh()
 
-func setItemVar(data, origin=null):
-	if(index < 0 || index >= choiceItems.size()):
+func setAttrVar(data, origin=null):
+	if(index < 0 || index >= choiceAttrs.size()):
 		return
-	if(data == choiceItems[index]["var"]):
+	if(data == choiceAttrs[index]["var"]):
 		return
-	choiceItems[index]["var"] = data
+	choiceAttrs[index]["var"] = data
 	refresh(origin)
-func setItemVal(data, origin=null):
-	if(index < 0 || index >= choiceItems.size()):
+func setAttrVal(data, origin=null):
+	if(index < 0 || index >= choiceAttrs.size()):
 		return
-	if(data == choiceItems[index]["val"]):
+	if(data == choiceAttrs[index]["val"]):
 		return
-	choiceItems[index]["val"] = data
+	choiceAttrs[index]["val"] = data
 	refresh(origin)
-func setItemMode(data, origin=null):
-	if(index < 0 || index >= choiceItems.size()):
+func setAttrMode(data, origin=null):
+	if(index < 0 || index >= choiceAttrs.size()):
 		return
-	if(data == choiceItems[index]["mod"]):
+	if(data == choiceAttrs[index]["mod"]):
 		return
-	choiceItems[index]["mod"] = data
+	choiceAttrs[index]["mod"] = data
 	refresh(origin)
 
 	
-func setItemType(data):
-	if(index < 0 || index >= choiceItems.size()):
+func setAttrType(data):
+	if(index < 0 || index >= choiceAttrs.size()):
 		return
-	choiceItems[index]["typ"] = data
+	choiceAttrs[index]["typ"] = data
 	refresh()
 func getName(i) -> String:
-	if(i >= choiceItems.size() || i < 0):
+	if(i >= choiceAttrs.size() || i < 0):
 		return "ERROR"
-	var itm = choiceItems[i] # item
-	var mod_name = ITEM_TYPE_MOD_NAME[itm["typ"]][itm["mod"]]
-	return ITEM_TYPE_NAME_FORMATS[itm["typ"]].format({"var":itm["var"], "val":itm["val"], "mod_name": mod_name})
+	var itm = choiceAttrs[i] # item
+	var mod_name = ATTR_TYPE_MOD_NAME[itm["typ"]][itm["mod"]]
+	return ATTR_TYPE_NAME_FORMATS[itm["typ"]].format({"var":itm["var"], "val":itm["val"], "mod_name": mod_name})
 
 
 	
@@ -87,13 +87,13 @@ func refresh(ignore = null):
 	# refresh names
 	var items:ItemList = $"HBoxContainer/content 1/Panel/ItemList"
 	#Note: renaming and adding/removing list-items as needed might be better.
-	for i in choiceItems.size():
+	for i in choiceAttrs.size():
 		var n = getName(i)
 		if(items.get_item_count() <= i):
 			items.add_item(n)
 		else:
 			items.set_item_text(i, n)
-	while(items.get_item_count() > choiceItems.size()):
+	while(items.get_item_count() > choiceAttrs.size()):
 		items.remove_item(items.get_item_count()-1)
 	#selects the current index. This should not trigger
 	#signal item_selected. If it does, it will cause a loop
@@ -101,28 +101,28 @@ func refresh(ignore = null):
 	$"HBoxContainer/content 2/itemname_label".text = getName((index))
 	
 	#DO NOT REFRESH any datafields if index is invalid.
-	if(index < 0 || index >= choiceItems.size()):
+	if(index < 0 || index >= choiceAttrs.size()):
 		return
 	# refresh mod
-	for f in itemModmenus:
+	for f in attrModmenus:
 		if f == ignore:
 			continue
-		(f as OptionButton).selected = choiceItems[index]["mod"]
+		(f as OptionButton).selected = choiceAttrs[index]["mod"]
 	# refreshvar
-	for f in itemVarFields:
+	for f in attrVarFields:
 		if f == ignore:
 			continue
-		(f as LineEdit).text = choiceItems[index]["var"] 
+		(f as LineEdit).text = choiceAttrs[index]["var"] 
 	#refresh val
-	for f in itemValFields:
+	for f in attrValFields:
 		if f == ignore:
 			continue
-		(f as LineEdit).text = choiceItems[index]["val"]
+		(f as LineEdit).text = choiceAttrs[index]["val"]
 #End of refresh
 
 func CreateNewItem():
-	choiceItems.push_back({"typ":0,"var":"null","mod":0,"val":""})
-	index = choiceItems.size()-1
+	choiceAttrs.push_back({"typ":0,"var":"null","mod":0,"val":""})
+	index = choiceAttrs.size()-1
 	refresh()
 	
 
@@ -133,9 +133,9 @@ func onItemSelected(new_index):
 
 
 func DeleteItem():
-	choiceItems.remove(index)
-	if(index >= choiceItems.size()):
-		index = choiceItems.size()-1
+	choiceAttrs.remove(index)
+	if(index >= choiceAttrs.size()):
+		index = choiceAttrs.size()-1
 	refresh()
 
 #make sure choice and name is set up right before showtime
@@ -145,12 +145,12 @@ func on_about_to_show():
 func _on_Edit_Choice_popup_hide():
 	index = -1
 	choiceName = "new choice"
-	choiceItems = []
+	choiceAttrs = []
 
 func on_set_choice_name(new_name):
 	choiceName = new_name
 
-signal save_choice(name, items)
+signal save_choice(name, attributes)
 func on_save_create():
-	emit_signal("save_choice", choiceName, choiceItems)
+	emit_signal("save_choice", choiceName, choiceAttrs)
 	hide()

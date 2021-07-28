@@ -17,36 +17,37 @@ func addLine():
 	newline["tag"] = ""
 	newline["audio_start"] = 0.0
 	newline["audio_end"] = 0.0 
-	newline["actions"] = []
 	newline["choices"] = []
 	
 	lines.append(newline)
-#The item action allow for the addinf or removal of an item
-func addItemAction(lineIndex):
-	if(lineIndex >= lines.size()):
-		return
-	var newaction = {}
-	newaction["type"] = "item"
-	newaction["add"] = true
-	newaction["id"] = ""
-	lines[lineIndex]["actions"].append(newaction);
-#The variable action allow for setting and manipulating variables
-func addVarAction(lineIndex):
-	if(lineIndex >= lines.size()):
-		return
-	var newaction = {}
-	newaction["type"] = "var"
-	newaction["action"] = varDoAction.SET
-	newaction["value"] = 0
-	lines[lineIndex]["actions"].append(newaction);
-#the tag variable allow for going to a different line next
-func addTagAction(lineIndex):
-	if(lineIndex >= lines.size()):
-		return
-	var newaction = {}
-	newaction["type"] = "tag"
-	newaction["tag"] = "varDoAction.SET"
-	lines[lineIndex]["actions"].append(newaction);
+
+#
+##The item action allow for the addinf or removal of an item
+#func addItemAction(lineIndex):
+#	if(lineIndex >= lines.size()):
+#		return
+#	var newaction = {}
+#	newaction["type"] = "item"
+#	newaction["add"] = true
+#	newaction["id"] = ""
+#	lines[lineIndex]["actions"].append(newaction);
+##The variable action allow for setting and manipulating variables
+#func addVarAction(lineIndex):
+#	if(lineIndex >= lines.size()):
+#		return
+#	var newaction = {}
+#	newaction["type"] = "var"
+#	newaction["action"] = varDoAction.SET
+#	newaction["value"] = 0
+#	lines[lineIndex]["actions"].append(newaction);
+##the tag variable allow for going to a different line next
+#func addTagAction(lineIndex):
+#	if(lineIndex >= lines.size()):
+#		return
+#	var newaction = {}
+#	newaction["type"] = "tag"
+#	newaction["tag"] = "varDoAction.SET"
+#	lines[lineIndex]["actions"].append(newaction);
 
 #func addchoice(lineIndex):
 #	if(lineIndex >= lines.size()):

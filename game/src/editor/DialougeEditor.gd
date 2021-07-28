@@ -151,3 +151,9 @@ func _process(_delta):
 
 
 
+var choiceindex:int = -1
+
+func on_selecting_choice(index):
+	choiceindex = index
+	if(index > 0 && )
+	"Edit book/VBoxContainer/Choices_area/del_choice"
