@@ -16,7 +16,7 @@ func _ready():
 
 
 func _on_Save_External_pressed():
-	var data:DialogueData = $"../Dialouge Inner editor".dialogue
+	var data:DialogueData = $"../..".dialogue
 	$Save_Dialogue.filename = data.name
 	$Load_Dialogue.access = FileDialog.ACCESS_FILESYSTEM;
 	$Save_Dialogue.popup_centered_minsize(Vector2(500, 500))
@@ -28,7 +28,7 @@ func _on_Load_External_pressed():
 	$Load_Dialogue.popup_centered_minsize(Vector2(500, 500))
 
 func _on_Save_Internal_pressed():
-	var data:DialogueData = $"../Dialouge Inner editor".dialogue
+	var data:DialogueData = $"../..".dialogue
 	$Save_Dialogue.filename = data.name
 	$Load_Dialogue.access = FileDialog.ACCESS_RESOURCES;
 	$Save_Dialogue.popup_centered_minsize(Vector2(500, 500))
@@ -42,11 +42,11 @@ func _on_Load_Internal_pressed():
 #TODO: add warning.
 #replace dialogue object with a new one
 func _on_New_Dialogue_pressed():
-	$"../Dialouge Inner editor".open_dialogue(DialogueData.new())
+	$"../..".open_dialogue(DialogueData.new())
 
 
 func _on_Save_Dialogue_file_selected(path:String):
-	var data:DialogueData = $"../Dialouge Inner editor".dialogue
+	var data:DialogueData = $"../..".dialogue
 	if !path.ends_with(".book.tres"):
 		path = path + ".book.tres"
 	var result = ResourceSaver.save(path, data)#, ResourceSaver.FLAG_BUNDLE_RESOURCES) #bundle? yes or no?
@@ -55,5 +55,5 @@ func _on_Save_Dialogue_file_selected(path:String):
 	
 func _on_Load_Dialogue_file_selected(path):
 	var data = ResourceLoader.load(path)
-	$"../Dialouge Inner editor".open_dialogue(data)
+	$"../..".open_dialogue(data)
 
