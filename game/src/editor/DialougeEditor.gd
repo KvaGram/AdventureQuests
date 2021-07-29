@@ -29,6 +29,10 @@ func refresh():
 	#If at last line, or somehow beyond, and body text is empty, next button is disabled.
 	$"Edit book/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && line["text"].empty()
 	
+	#refresh choices
+	var choice_list = getChoiceList()
+	
+	
 func _on_Load_Audacity_labels_pressed():
 	var input:TextEdit = $Settings/VBoxContainer/wildText
 	var numLines = input.get_line_count()
@@ -55,13 +59,14 @@ func _on_Load_Audacity_labels_pressed():
 
 
 	
-	#Todo: populate actions and choices
+signal on_new_book(new_dialogue)
 func open_dialogue(data):
 	if(data is DialogueData):
 		line_index = 0
 		dialogue = data
 		$TestaudioPlayer.stream = data.audio;
 		refresh()
+		emit_signal("on_new_book", dialogue)
 		return
 	print("Attempted to load non-dialogue data. Ignored")
 	
@@ -150,10 +155,18 @@ func _process(_delta):
 		$TestaudioPlayer.stop()
 
 
+func getChoiceList() -> Dictionary:
+	if line_index < 0 || line_index >= dialogue.lines.size():
+		return {}
+	return dialogue.lines[line_index]["choices"]
 
-var choiceindex:int = -1
-
+var choice_name:String = ""
 func on_selecting_choice(index):
-	choiceindex = index
-	if(index > 0 && )
-	"Edit book/VBoxContainer/Choices_area/del_choice"
+	choice_name = $"Edit book/VBoxContainer/Choices_area/choiceslist".get_item_text(index)
+	$"Edit book/VBoxContainer/Choices_area/del_choice".disabled = not getChoiceList().has(choice_name)
+
+func on_delete_choice():
+	if not getChoiceList().has(choice_name):
+		return
+	getChoiceList().erase(choice_name)
+	refresh()

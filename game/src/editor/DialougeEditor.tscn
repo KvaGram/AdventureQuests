@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/editor/Dialogue_edit_file_ops.gd" type="Script" id=1]
+[ext_resource path="res://src/editor/EditAttributes.gd" type="Script" id=2]
 [ext_resource path="res://src/editor/DialougeEditor.gd" type="Script" id=3]
+[ext_resource path="res://src/editor/AttributeEditor.gd" type="Script" id=4]
 [ext_resource path="res://src/editor/wildText.gd" type="Script" id=5]
 [ext_resource path="res://src/editor/Edit_Choice.gd" type="Script" id=6]
 
@@ -33,7 +35,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Tabs" parent="HBoxContainer/Dialouge Inner editor"]
+[node name="Settings" type="Control" parent="HBoxContainer/Dialouge Inner editor"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,8 +45,8 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Settings"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 892.0
+margin_bottom = 464.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -144,10 +146,8 @@ text = "Error: no error
 (this is a joke)"
 
 [node name="LoadAudio" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Settings"]
-margin_left = 422.856
-margin_top = 87.7803
-margin_right = 1032.86
-margin_bottom = 359.78
+margin_right = 892.0
+margin_bottom = 562.0
 rect_min_size = Vector2( 300, 105 )
 window_title = "Open a File or Directory"
 mode = 3
@@ -160,10 +160,9 @@ __meta__ = {
 }
 
 [node name="Dialogue_edit_file_ops" type="Control" parent="HBoxContainer/Dialouge Inner editor/Settings"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -545.0
-margin_bottom = 100.0
+margin_top = 468.0
+margin_right = 892.0
+margin_bottom = 568.0
 rect_min_size = Vector2( 100, 100 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -172,10 +171,10 @@ __meta__ = {
 
 [node name="Load_Dialogue" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops"]
 visible = true
-margin_left = -331.507
-margin_top = -294.361
-margin_right = 112.493
-margin_bottom = -164.361
+margin_left = -539.977
+margin_top = -363.851
+margin_right = -95.9773
+margin_bottom = -233.851
 rect_min_size = Vector2( 300, 105 )
 window_title = "Open a File"
 resizable = true
@@ -190,10 +189,10 @@ __meta__ = {
 
 [node name="Save_Dialogue" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops"]
 visible = true
-margin_left = 183.773
-margin_top = -292.518
-margin_right = 627.773
-margin_bottom = -162.518
+margin_left = -527.164
+margin_top = -96.5203
+margin_right = -83.1642
+margin_bottom = 33.4797
 rect_min_size = Vector2( 300, 105 )
 window_title = "Save Dialogue"
 resizable = true
@@ -207,10 +206,10 @@ __meta__ = {
 [node name="File operations" type="GridContainer" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.77551
-margin_top = -4.71938
-margin_right = 3.77551
-margin_bottom = -16.7194
+margin_left = 591.417
+margin_top = -471.48
+margin_right = 0.41687
+margin_bottom = -487.48
 columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -247,7 +246,8 @@ margin_right = 100.0
 margin_bottom = 92.0
 text = "Save Internal"
 
-[node name="Edit book" type="Tabs" parent="HBoxContainer/Dialouge Inner editor"]
+[node name="Edit book" type="Control" parent="HBoxContainer/Dialouge Inner editor"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -445,6 +445,440 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Edit Attributes" type="Control" parent="HBoxContainer/Dialouge Inner editor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 2 )
+
+[node name="Attributes editor" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes"]
+margin_right = 125.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 55, 61.9271 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor"]
+margin_right = 484.0
+margin_bottom = 82.0
+text = "Welcome to the attributes editor.
+Sorry for the mess, I'm not a UI designer, and this is an evolving prototype.
+The attributes are what makes things interactable in this program.
+Be careful to use them correctly.
+(this UI is VERY subject to change) "
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor"]
+margin_top = 86.0
+margin_right = 484.0
+margin_bottom = 90.0
+
+[node name="Edit mode" type="TabContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor"]
+margin_top = 94.0
+margin_right = 484.0
+margin_bottom = 291.0
+
+[node name="Edit page choices" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Choices" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices"]
+margin_right = 476.0
+margin_bottom = 133.0
+text = "You are editing the attributes for a dialogue choices.
+You cannot add or rename choices in \"Edit attributes\". Please use \"Edit book\" for that.
+Here is what you can do:
+* Use a goto attribute to decide what tagged dialogue comes next.
+* Use an If attribute to decide when this choice should be selectable
+* Use a Set attribute to set variables, such as quest progress, items in inventory etc."
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices"]
+margin_top = 137.0
+margin_right = 476.0
+margin_bottom = 161.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_top = 5.0
+margin_right = 73.0
+margin_bottom = 19.0
+text = "Select page"
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 77.0
+margin_right = 81.0
+margin_bottom = 24.0
+
+[node name="Label3" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 85.0
+margin_top = 5.0
+margin_right = 123.0
+margin_bottom = 19.0
+text = "by tag"
+
+[node name="tag_list" type="OptionButton" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 127.0
+margin_right = 177.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="VSeparator3" type="VSeparator" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 181.0
+margin_right = 185.0
+margin_bottom = 24.0
+
+[node name="Label2" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 189.0
+margin_top = 5.0
+margin_right = 237.0
+margin_bottom = 19.0
+text = "by num"
+
+[node name="page_spinbox" type="SpinBox" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 241.0
+margin_right = 315.0
+margin_bottom = 24.0
+max_value = 999.0
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 319.0
+margin_right = 323.0
+margin_bottom = 24.0
+
+[node name="Label4" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 327.0
+margin_top = 5.0
+margin_right = 412.0
+margin_bottom = 19.0
+text = "Select choice"
+
+[node name="page_choices" type="OptionButton" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/Edit mode/Edit page choices/HBoxContainer"]
+margin_left = 416.0
+margin_right = 476.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 60, 0 )
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor"]
+margin_top = 295.0
+margin_right = 484.0
+margin_bottom = 299.0
+
+[node name="AttributeEditorContainer" type="TabContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor"]
+margin_top = 303.0
+margin_right = 484.0
+margin_bottom = 315.0
+tabs_visible = false
+
+[node name="AttributeEditor" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 481.0
+margin_bottom = 469.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="content 1" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor"]
+margin_right = 185.0
+margin_bottom = 700.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1"]
+margin_right = 185.0
+margin_bottom = 31.0
+text = "Attributes
+(conditions or actions)"
+
+[node name="Panel" type="Panel" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1"]
+margin_top = 35.0
+margin_right = 185.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 0, 160 )
+
+[node name="ItemList" type="ItemList" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttons" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1"]
+margin_top = 199.0
+margin_right = 185.0
+margin_bottom = 219.0
+
+[node name="NewItemButton" type="Button" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1/buttons"]
+margin_right = 126.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 0.776471, 1, 1 )
+text = "Add new attribute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DelItem" type="Button" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1/buttons"]
+margin_left = 130.0
+margin_right = 185.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Delete"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attribute editor" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor"]
+margin_left = 189.0
+margin_right = 489.0
+margin_bottom = 700.0
+
+[node name="itemname_label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor"]
+margin_right = 300.0
+margin_bottom = 14.0
+text = "attribute-descriptive-name"
+align = 1
+
+[node name="EditItemsPanel" type="Panel" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor"]
+margin_top = 18.0
+margin_right = 300.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 300, 150 )
+
+[node name="EditItems" type="TabContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 11.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 300, 150 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goto" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label2" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Goto"]
+margin_right = 303.0
+margin_bottom = 48.0
+text = "When this option of chosen,
+next bit of dialog is the page
+tagged by the name"
+
+[node name="varname" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Goto" groups=[
+"e_c_attrVarFields",
+]]
+margin_top = 52.0
+margin_right = 303.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Goto"]
+margin_top = 80.0
+margin_right = 303.0
+margin_bottom = 94.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Goto/HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 14.0
+text = "(Only 1 per option)"
+
+[node name="If var" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label2" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/If var"]
+margin_right = 303.0
+margin_bottom = 48.0
+text = "Following must be true
+for option to be used:
+The variable"
+
+[node name="varname" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/If var" groups=[
+"e_c_attrVarFields",
+]]
+margin_top = 52.0
+margin_right = 303.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/If var"]
+margin_top = 80.0
+margin_right = 303.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/If var/HBoxContainer"]
+margin_top = 3.0
+margin_right = 57.0
+margin_bottom = 17.0
+text = "must be "
+
+[node name="IfMod" type="OptionButton" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/If var/HBoxContainer" groups=[
+"e_c_attrModmenus",
+]]
+margin_left = 61.0
+margin_right = 144.0
+margin_bottom = 20.0
+text = "Equal =="
+items = [ "Equal ==", null, false, 0, null, "Not Equal !=", null, false, 1, null, "Less or Equal <=", null, false, 2, null, "Greater or Equal >=", null, false, 3, null ]
+selected = 0
+
+[node name="valuetarget" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/If var" groups=[
+"e_c_attrValFields",
+]]
+margin_top = 104.0
+margin_right = 303.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Set var" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label2" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Set var"]
+margin_right = 303.0
+margin_bottom = 48.0
+text = "The following will happen
+When this option is chosen:
+The variable"
+
+[node name="varname" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Set var" groups=[
+"e_c_attrVarFields",
+]]
+margin_top = 52.0
+margin_right = 303.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Set var"]
+margin_top = 80.0
+margin_right = 303.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Set var/HBoxContainer"]
+margin_top = 3.0
+margin_right = 42.0
+margin_bottom = 17.0
+text = "will be"
+
+[node name="SetMod" type="OptionButton" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Set var/HBoxContainer" groups=[
+"e_c_attrModmenus",
+]]
+margin_left = 46.0
+margin_right = 107.0
+margin_bottom = 20.0
+text = "Set ="
+items = [ "Set =", null, false, 0, null, "Add +", null, false, 1, null, "N/A (please change)", null, true, 2, null, "N/A (please change)", null, true, 3, null ]
+selected = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Set var/HBoxContainer"]
+visible = false
+margin_left = 258.0
+margin_top = 3.0
+margin_right = 303.0
+margin_bottom = 17.0
+text = "to/with"
+
+[node name="valuetarget" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems/Set var" groups=[
+"e_c_attrValFields",
+]]
+margin_top = 104.0
+margin_right = 303.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="Control" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor"]
+margin_top = 172.0
+margin_right = 300.0
+margin_bottom = 172.0
+
+[node name="Info" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/HBoxContainer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = 37.0
+margin_right = -59.0
+margin_bottom = 70.0
+text = "* means number only, no text in value fields. "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = 196.0
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -245.0
+margin_bottom = -100.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/Panel/CenterContainer"]
+margin_left = 30.0
+margin_top = 34.0
+margin_right = 201.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "No attribute array selected
+(invalid choice)"
+align = 1
 
 [node name="TestaudioPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Dialouge Inner editor"]
 
@@ -788,6 +1222,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="."]
+margin_left = 12.1953
+margin_top = 607.457
+margin_right = 230.195
+margin_bottom = 825.457
+rect_scale = Vector2( 2, 3 )
+text = "NOTE:
+This is a redesign of the Edit choice window.
+TODO:
+* Write a script for the attribute editor thing itself, it should only take an array as argument. It does not care if it is for a page or the whole book.
+* code the select page and select choice selectors
+* Code the book attribute editor"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="on_new_book" from="HBoxContainer/Dialouge Inner editor" to="HBoxContainer/Dialouge Inner editor/Edit Attributes" method="_on_new_book"]
 [connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2/LoadAudiofile" to="HBoxContainer/Dialouge Inner editor" method="_on_LoadAudiofile_pressed"]
 [connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2/TestAudioFull" to="HBoxContainer/Dialouge Inner editor" method="_on_TestAudioFull_pressed"]
 [connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2/AudioStop" to="HBoxContainer/Dialouge Inner editor" method="_on_AudioStop_pressed"]
@@ -810,6 +1262,12 @@ __meta__ = {
 [connection signal="value_changed" from="HBoxContainer/Dialouge Inner editor/Edit book/VBoxContainer/Dialogue editor panel/Aux data/HBoxContainer/audio_end_at" to="HBoxContainer/Dialouge Inner editor" method="_on_audio_end_at_value_changed"]
 [connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Edit book/VBoxContainer/Dialogue editor panel/Aux data/TestAudioLine" to="HBoxContainer/Dialouge Inner editor" method="_on_TestAudioLine_pressed"]
 [connection signal="item_selected" from="HBoxContainer/Dialouge Inner editor/Edit book/VBoxContainer/Choices_area/choiceslist" to="HBoxContainer/Dialouge Inner editor" method="on_selecting_choice"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Edit book/VBoxContainer/Choices_area/del_choice" to="HBoxContainer/Dialouge Inner editor" method="on_delete_choice"]
+[connection signal="visibility_changed" from="HBoxContainer/Dialouge Inner editor/Edit Attributes" to="HBoxContainer/Dialouge Inner editor/Edit Attributes" method="refresh"]
+[connection signal="item_selected" from="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1/Panel/ItemList" to="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor" method="onItemSelected"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1/buttons/NewItemButton" to="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor" method="CreateNewItem"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/content 1/buttons/DelItem" to="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor" method="DeleteItem"]
+[connection signal="tab_changed" from="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor/Attribute editor/EditItemsPanel/EditItems" to="HBoxContainer/Dialouge Inner editor/Edit Attributes/Attributes editor/AttributeEditorContainer/AttributeEditor" method="setAttrType"]
 [connection signal="about_to_show" from="Edit_Choice" to="Edit_Choice" method="on_about_to_show"]
 [connection signal="popup_hide" from="Edit_Choice" to="Edit_Choice" method="_on_Edit_Choice_popup_hide"]
 [connection signal="text_changed" from="Edit_Choice/HBoxContainer/content 1/displayname/set_choicename" to="Edit_Choice" method="on_set_choice_name"]

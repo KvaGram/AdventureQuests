@@ -12,4 +12,4 @@ static func nestedSplit(source:String, delimiters:Array) -> Array:
 		res2.append_array( nestedSplit(res1[r], deli2))
 	return res2;
 	
-	
+#todo: add set list OptionsButton

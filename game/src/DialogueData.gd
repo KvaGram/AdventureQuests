@@ -1,6 +1,11 @@
 extends Resource
 class_name DialogueData
 
+#WARNING: Due to my own inconsistancy of thinking,
+# Lines are interchangable with pages in
+# variablenames and documentation.
+#  - KvaGram
+
 #dialogue lines
 export var lines = []
 #conditions for showing this dialogue
@@ -10,74 +15,43 @@ export var name = ""
 
 export var audio:AudioStream
 
-func addLine():
+func addLine(index = -1):
 	var newline = {}
 	newline["name"] = ""
 	newline["text"] = ""
 	newline["tag"] = ""
 	newline["audio_start"] = 0.0
 	newline["audio_end"] = 0.0 
-	newline["choices"] = []
+	newline["choices"] = {}
 	
-	lines.append(newline)
+	#if index is valid, insert it there.
+	if index >= 0 && index < lines.size():
+		lines.insert(index, newline)
+	#else appent the new line
+	else:
+		lines.append(newline)
 
-#
-##The item action allow for the addinf or removal of an item
-#func addItemAction(lineIndex):
-#	if(lineIndex >= lines.size()):
-#		return
-#	var newaction = {}
-#	newaction["type"] = "item"
-#	newaction["add"] = true
-#	newaction["id"] = ""
-#	lines[lineIndex]["actions"].append(newaction);
-##The variable action allow for setting and manipulating variables
-#func addVarAction(lineIndex):
-#	if(lineIndex >= lines.size()):
-#		return
-#	var newaction = {}
-#	newaction["type"] = "var"
-#	newaction["action"] = varDoAction.SET
-#	newaction["value"] = 0
-#	lines[lineIndex]["actions"].append(newaction);
-##the tag variable allow for going to a different line next
-#func addTagAction(lineIndex):
-#	if(lineIndex >= lines.size()):
-#		return
-#	var newaction = {}
-#	newaction["type"] = "tag"
-#	newaction["tag"] = "varDoAction.SET"
-#	lines[lineIndex]["actions"].append(newaction);
-
-#func addchoice(lineIndex):
-#	if(lineIndex >= lines.size()):
-#		return
-#	var newChoice
-	
-
-#class Line:
-#	var name := ""
-#	var text := ""
-#	var actions := []
-#	var tag := ""
-#	var audio_start := 0.0
-#	var audio_end := 0.0
-##used for both adding items, and checking if player have items
-#class ItemAction:
-#	var add := true
-#	var id := ""
-##used both for setting variables, and conditions
-#class VarAction:
-#	var action:int = varDoAction.SET #also varDoCondition.EQUAL
-#	var id := ""
-#	var value
-#	func validate():
-#		#if the action is anything other than SET or EQUAL
-#		#Then the value must be either an int or a float.
-#		#Otherswise, put a frog in there, for all I care.
-#		if(action != varDoAction.SET):
-#			return (value is int || value is float)
-#		return true	
-
-enum varDoAction {SET, ADD, SUBTRACT}
-enum varDoCondition {EQUAL, GREATER_THAN, LESSER_THAN}
+func getTagList() -> Array :
+	var list = []
+	for l in lines:
+		if l["tag"].length() > 0 and not list.has(l["tag"]):
+			list.append(l["tag"])
+	return list
+func getLineByTag(tag:String):
+	for l in lines:
+		if(l["tag"] == tag):
+			return tag
+	return null
+func getIndexByTag(tag:String):
+	for i in lines.size():
+		if(lines[i]["tag"] == tag):
+			return i
+	return -1
+func getTagByIndex(ind:int):
+	return lines[ind]["tag"]
+func getChoicesKeys(ind):
+	return lines[ind]["choices"].keys()
+func getLine(index:int):
+	if(index < 0 || index > lines.size()):
+		return null
+	return lines[index]
