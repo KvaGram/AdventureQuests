@@ -13,7 +13,7 @@ func _ready():
 		$"VBoxContainer/button bar/HBoxContainer/open editor".disabled = false
 	else:
 		$"VBoxContainer/button bar/HBoxContainer/open editor".disabled = true
-	pass
+	$"dev_build_alert".popup_centered()
 	
 func save():
 	Global.saveData()
