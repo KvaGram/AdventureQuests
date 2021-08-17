@@ -30,7 +30,18 @@ func refresh():
 	$"Edit book/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && line["text"].empty()
 	
 	#refresh choices
-	var choice_list = getChoiceList()
+	var choices = getChoiceList().keys()
+	var choicelist = $"Edit book/VBoxContainer/Choices_area/choiceslist"
+	var i = 0
+	while i < choices.size():
+		if i >= choicelist.get_item_count():
+			choicelist.add_item(choices[i])
+		choicelist.set_item_text(i, choices[i])
+		i += 1
+	#remove excess items in choicelist
+	while(i < choicelist.get_item_count()):
+		choicelist.remove_item(i)
+	
 	
 	
 func _on_Load_Audacity_labels_pressed():
@@ -108,9 +119,9 @@ func _on_Character_name_text_changed(new_name):
 
 
 func _on_Dialouge_text_changed():
-	var text = $"Editor/VBoxContainer/Dialogue editor panel/VBoxContainer/Dialogue_box".text
+	var text = $"Edit book/VBoxContainer/Dialogue editor panel/VBoxContainer/Dialogue_box".text
 	dialogue.lines[line_index]["text"] = text
-	$"Editor/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && text.empty()
+	$"Edit book/VBoxContainer/Dialogue editor panel/Controller/next".disabled = line_index+1 >= dialogue.lines.size() && text.empty()
 
 func _on_audio_start_at_value_changed(value):
 	dialogue.lines[line_index]["audio_start"] = value
@@ -170,3 +181,19 @@ func on_delete_choice():
 		return
 	getChoiceList().erase(choice_name)
 	refresh()
+var new_choice_name = ""
+func set_new_choice_name(new_text):
+	new_choice_name = new_text
+func add_new_choice_fast(new_text):
+		set_new_choice_name(new_text)
+		add_new_choice()
+func add_new_choice():
+	getChoiceList()[new_choice_name] = []
+	refresh()
+func rename_choice():
+	if not getChoiceList().has(choice_name):
+		return
+	getChoiceList()[new_choice_name] = getChoiceList()[choice_name]
+	getChoiceList().erase(choice_name)
+	refresh()
+

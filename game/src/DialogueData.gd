@@ -51,7 +51,12 @@ func getTagByIndex(ind:int):
 	return lines[ind]["tag"]
 func getChoicesKeys(ind):
 	return lines[ind]["choices"].keys()
+func getChoiceAttributes(ind, choicename):
+	if(ind < 0 || ind >= lines.size() || choicename == null || choicename == ""):
+		return null
+	return lines[ind]["choices"][choicename]
 func getLine(index:int):
 	if(index < 0 || index > lines.size()):
 		return null
 	return lines[index]
+

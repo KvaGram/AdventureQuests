@@ -40,15 +40,44 @@ func refresh():
 	page_spinbox.max_value = target_book.lines.size()-1
 
 func onSelectTag(value):
-	return onSetLine(target_book.getIndexByTag(value))
+	value = tag_list.get_item_text(value)
+	value = target_book.getIndexByTag(value)
+	page_spinbox.value = value
+	return onSetLine(value)
 
 func onSetLine(value):
 	#TODO: update page choices
+	target_line = value
 	#update selected tag
 	tag_list.text = target_book.getTagByIndex((value))
-	
-	pass
+	var choice_names = target_book.getChoicesKeys(value)
+	var i = 0
+	#add or rename items in page_choices
+	while i < choice_names.size():
+		if i >= page_choices.get_item_count():
+			page_choices.add_item(choice_names[i])
+		page_choices.set_item_text(i, choice_names[i])
+		i += 1
+	#remove excess items in page_choices
+	while(i < page_choices.get_item_count()):
+		page_choices.remove_item(i)
+	page_choices.select(0)
+	if(choice_names.size() <= 0):
+		setAttributeTarget(null)
+	else:
+		setAttributeTarget(choice_names[0])
 
+func setAttributeTarget(value):
+	if not value is Array:
+		value = target_book.getChoiceAttributes(target_line, value)
+	if(value == null or not value is Array):
+		#disable the attribute editor
+		$"Attributes editor/AttributeEditorContainer".current_tab = 1
+	else:
+		#enable the attribute editor, and set the target array refrence
+		$"Attributes editor/AttributeEditorContainer".current_tab = 0
+		$"Attributes editor/AttributeEditorContainer/AttributeEditor".setTarget(value)
+	
 func _on_new_book(new_dialogue):
 	target_book = new_dialogue
 

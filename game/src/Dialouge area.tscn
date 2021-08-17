@@ -8,7 +8,6 @@
 
 [node name="Dialouge area" type="CanvasLayer"]
 script = ExtResource( 1 )
-dialogueFile = "res://src/areas/unknown/unknown_dialouge.json"
 
 [node name="Dialouge box" type="NinePatchRect" parent="."]
 anchor_top = 1.0

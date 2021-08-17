@@ -99,9 +99,14 @@ margin_right = 371.0
 margin_bottom = 32.0
 text = "Open Quest log"
 
-[node name="save" type="Button" parent="VBoxContainer/button bar/HBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/button bar/HBoxContainer"]
 margin_left = 375.0
-margin_right = 418.0
+margin_right = 378.0
+margin_bottom = 32.0
+
+[node name="save" type="Button" parent="VBoxContainer/button bar/HBoxContainer"]
+margin_left = 382.0
+margin_right = 425.0
 margin_bottom = 32.0
 text = "SAVE"
 __meta__ = {
@@ -109,10 +114,24 @@ __meta__ = {
 }
 
 [node name="load" type="Button" parent="VBoxContainer/button bar/HBoxContainer"]
-margin_left = 422.0
-margin_right = 471.0
+margin_left = 429.0
+margin_right = 478.0
 margin_bottom = 32.0
 text = "LOAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/button bar/HBoxContainer"]
+margin_left = 482.0
+margin_right = 485.0
+margin_bottom = 32.0
+
+[node name="open editor" type="Button" parent="VBoxContainer/button bar/HBoxContainer"]
+margin_left = 489.0
+margin_right = 589.0
+margin_bottom = 32.0
+text = "OPEN EDITOR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -382,6 +401,7 @@ max_length = 6
 [connection signal="pressed" from="VBoxContainer/button bar/HBoxContainer/Questbutton" to="QuestPanel" method="onShow"]
 [connection signal="pressed" from="VBoxContainer/button bar/HBoxContainer/save" to="." method="save"]
 [connection signal="pressed" from="VBoxContainer/button bar/HBoxContainer/load" to="." method="load"]
+[connection signal="pressed" from="VBoxContainer/button bar/HBoxContainer/open editor" to="." method="_on_open_editor_pressed"]
 [connection signal="about_to_show" from="Player panel" to="Player panel" method="populate"]
 [connection signal="text_changed" from="Player panel/VBoxContainer/HBoxContainer/LineEdit" to="Player panel" method="updatePlayername"]
 [connection signal="about_to_show" from="AskAreaPass" to="AskAreaPass" method="_on_AskAreaPass_about_to_show"]

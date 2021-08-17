@@ -25,7 +25,7 @@ var attrVarFields = []
 var attrValFields = []
 var attrModmenus = []
 var target:Array
-var attr_i
+var attr_i = 0
 
 func setTarget(new_target:Array):
 	target = new_target
@@ -46,8 +46,7 @@ func refresh(ignore = null):
 	#selects the current index. This should not trigger
 	#signal item_selected. If it does, it will cause a loop
 	items.select(attr_i, true)
-	$"content 2/itemname_label".text = getName((attr_i))
-	
+	$"Attribute editor/itemname_label" .text = getName(attr_i)
 	#DO NOT REFRESH any datafields if index is invalid.
 	if(attr_i < 0 || attr_i >= target.size()):
 		return
