@@ -5,7 +5,7 @@
 [ext_resource path="res://src/button textures/bundleImage.png" type="Texture" id=3]
 [ext_resource path="res://src/QuestPanel.gd" type="Script" id=4]
 [ext_resource path="res://src/AskAreaPass.gd" type="Script" id=5]
-[ext_resource path="res://src/Area.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=6]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -27,6 +27,13 @@ margin_top = 0.943892
 margin_right = 1.0
 margin_bottom = 0.943909
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -56,6 +63,9 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DialogNode" parent="." instance=ExtResource( 6 )]
+timeline = "timeline-1630501601.json"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -138,8 +148,6 @@ text = "OPEN EDITOR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Area" parent="VBoxContainer" instance=ExtResource( 6 )]
 
 [node name="GameData" type="Node" parent="." groups=[
 "savedata",
@@ -419,17 +427,22 @@ margin_right = -8.0
 margin_bottom = -36.0
 text = "Uh, hi.
 Just letting you know this build is at a test stage.
-The whole layout is likely to be changed, probobly rather drastically.
-Making this has been a learning experience, and now that I better know what I'm doing, I should be able to design a better UI for all this.
-However ugly this current build is, the core functions should still be fine, even if some planned features had to be disabled for now.
+I recently swapped out.. just.. the entire dialouge system.
+The replacement has a complex in-engine editor, so that means no editor.
+Sorry about that. Still, you should still be able to contribute by cloning this repo, and just use the new editor.
+You will need:
+* The godot engine
+* Github
+Look up on youtube how to:
+* Clone a repo from github, and submit a pull request
+* How to use Dialogic plugin for Godot
 
-The editor is not yet safe to use outside of the Godot editor yet.
-I am working on that. For now, access to the editor is restricted.
-If you find the OPEN EDITOR button not disabled, you may try to edit things, but you will probobly not get very far before you encounter an error.
+The UI will be changed up to work with the Dialogic plugin.
+Some of the planned features will be salvaged, though sadly no editor.
 
-Any and all feedback are welcome. And if you notice a bug, please let me know.
-Even if you think it must be known already, report it.
-I will set up a list of known bugs somewhere somehow where you could check.
+If you can't be bothered with github and Godot, but still want to help:
+Write down text from quests, noting down where they are, and to what context.
+And take some screenshots of the area, and the characters.
 
  - KvaGram"
 autowrap = true
@@ -447,5 +460,5 @@ __meta__ = {
 [connection signal="text_changed" from="Player panel/VBoxContainer/HBoxContainer/LineEdit" to="Player panel" method="updatePlayername"]
 [connection signal="about_to_show" from="AskAreaPass" to="AskAreaPass" method="_on_AskAreaPass_about_to_show"]
 [connection signal="popup_hide" from="AskAreaPass" to="AskAreaPass" method="_on_AskAreaPass_popup_hide"]
-[connection signal="text_entered" from="AskAreaPass/VBoxContainer/LineEdit" to="VBoxContainer/Area" method="loadArea"]
+[connection signal="text_entered" from="AskAreaPass/VBoxContainer/LineEdit" to="." method="onPassEntered"]
 [connection signal="text_entered" from="AskAreaPass/VBoxContainer/LineEdit" to="AskAreaPass" method="onPassEntered"]

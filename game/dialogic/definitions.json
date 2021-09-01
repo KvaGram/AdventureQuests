@@ -1,0 +1,20 @@
+{
+	"glossary": [
+		{
+			"extra": "What is extra?",
+			"id": "1630501521-787",
+			"name": "TEST",
+			"text": "When checking how a thing works, it's wise to make a test.",
+			"title": "A test",
+			"type": 1
+		}
+	],
+	"variables": [
+		{
+			"id": "1630504402-648",
+			"name": "Area",
+			"type": 0,
+			"value": ""
+		}
+	]
+}

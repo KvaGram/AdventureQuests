@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"background": "res://src/areas/unknown/unknown.png",
+			"event_id": "dialogic_021"
+		},
+		{
+			"action": "join",
+			"character": "character-1630499981.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://src/areas/unknown/unknown_0.mp3",
+			"volume": 0
+		},
+		{
+			"character": "character-1630499981.json",
+			"event_id": "dialogic_001",
+			"portrait": "Kva_happy_greeting",
+			"text": "Well.. he he..  it looks like you may have gotten yourself lost, friend.\nMaybe you typed in the wrong passkey, or maybe you just opened this program,\nand this is a huge suprise to you.\nSo why don't you hit that 'Go to Location' button up there in the corner,\nand try again?"
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://src/areas/unknown/unknown_1.mp3",
+			"volume": 0
+		},
+		{
+			"character": "character-1630499981.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "...Go on. I don't know why you are still here.\nThere really isen't anything for you to do here."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1630501601.json",
+		"name": "unknown_area"
+	}
+}

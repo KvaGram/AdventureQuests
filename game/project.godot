@@ -93,6 +93,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://src/Global.gd"
+DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
 
 [importer_defaults]
 

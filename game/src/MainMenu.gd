@@ -1,6 +1,8 @@
 extends Control
 var editorPath = "res://src/editor/DialougeEditor.tscn"
 var textline;
+#var dialogic:Dialogic
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,6 +17,9 @@ func _ready():
 		$"VBoxContainer/button bar/HBoxContainer/open editor".disabled = true
 	$"dev_build_alert".popup_centered()
 	
+	#dialogic = Dialogic.new()
+	
+	
 func save():
 	Global.saveData()
 func load():
@@ -28,3 +33,9 @@ func load():
 func _on_open_editor_pressed():
 	if ResourceLoader.exists(editorPath):
 		get_tree().change_scene(editorPath)
+
+
+func onPassEntered(new_text):
+	#stub
+	Dialogic.start("unknown_area")
+	pass # Replace with function body.

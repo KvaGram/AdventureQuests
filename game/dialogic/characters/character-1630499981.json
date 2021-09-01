@@ -1,0 +1,28 @@
+{
+	"color": "#ff118a00",
+	"description": "This mysterius duck just shows up out of nowhere.\nNoone knows what he is talking about, nor why.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630499981.json",
+	"mirror_portraits": false,
+	"name": "Kvavatar",
+	"nickname": "The debug duck",
+	"nickname_bool": true,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://src/Characters/KvaGram/kva_neutral.png"
+		},
+		{
+			"name": "kva_pained_facepalm",
+			"path": "res://src/Characters/KvaGram/kva_pained_facepalm.png"
+		},
+		{
+			"name": "Kva_happy_greeting",
+			"path": "res://src/Characters/KvaGram/Kva_happy_greeting.png"
+		}
+	],
+	"scale": 20
+}
