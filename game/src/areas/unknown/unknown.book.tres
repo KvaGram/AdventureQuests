@@ -27,27 +27,7 @@ and try again?"
 "text": "...Go on. I don't know why you are still here.
 There really isen't anything for you to do here."
 } ]
-conditions = [ {
-"actions": [  ],
-"audio_end": 0.0,
-"audio_start": 0.0,
-"choices": [  ],
-"name": "KvaGram the Questduck",
-"tag": "",
-"text": "Well.. it looks like you have gotten yourself lost, friend.
-Maybe you typed in the wrong passkey, or maybe you just opened this program,
-and this is a huge suprise to you.
-So why don't you hit that 'Go to Location' button up there in the corner,
-and try again?"
-}, {
-"actions": [  ],
-"audio_end": 0.0,
-"audio_start": 0.0,
-"choices": [  ],
-"name": "KvaGram the Questduck",
-"tag": "",
-"text": "...Go on. I don't know why you are still here.
-There really isen't anything for you to do here."
-} ]
 name = "Unknown book"
+images = [  ]
+books = [  ]
 audio = ExtResource( 2 )

@@ -133,6 +133,7 @@ margin_bottom = 32.0
 margin_left = 489.0
 margin_right = 589.0
 margin_bottom = 32.0
+disabled = true
 text = "OPEN EDITOR"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -419,22 +420,19 @@ margin_bottom = -36.0
 text = "Uh, hi.
 Just letting you know this build is at a test stage.
 The whole layout is likely to be changed, probobly rather drastically.
-Making this has been a learning experience,
- and now that I better know what I'm doing, I should be able to design a better
-UI for all this.
-However ugly this current build is, the core functions should still be fine,
-even if some planned features had to be disabled for now.
+Making this has been a learning experience, and now that I better know what I'm doing, I should be able to design a better UI for all this.
+However ugly this current build is, the core functions should still be fine, even if some planned features had to be disabled for now.
 
-You may access the editor from the OPEN EDITOR button.
-Just know there are currently no way  back from the editor.
-Also the editor may not work right in the web-build. If you are reading this on
-the website, and the button is somehow not disabled, please don't press it.
+The editor is not yet safe to use outside of the Godot editor yet.
+I am working on that. For now, access to the editor is restricted.
+If you find the OPEN EDITOR button not disabled, you may try to edit things, but you will probobly not get very far before you encounter an error.
 
 Any and all feedback are welcome. And if you notice a bug, please let me know.
 Even if you think it must be known already, report it.
 I will set up a list of known bugs somewhere somehow where you could check.
 
  - KvaGram"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

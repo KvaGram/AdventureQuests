@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/editor/Dialogue_edit_file_ops.gd" type="Script" id=1]
 [ext_resource path="res://src/editor/EditAttributes.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://src/editor/AttributeEditor.gd" type="Script" id=4]
 [ext_resource path="res://src/editor/wildText.gd" type="Script" id=5]
 [ext_resource path="res://src/editor/Edit_Choice.gd" type="Script" id=6]
+[ext_resource path="res://src/editor/AreaEditor.gd" type="Script" id=7]
+[ext_resource path="res://src/resources/background_default.png" type="Texture" id=8]
 
 [node name="Dialogue editor window" type="Control"]
 anchor_right = 1.0
@@ -35,7 +37,116 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Control" parent="HBoxContainer/Dialouge Inner editor"]
+[node name="Area Editor" type="GridContainer" parent="HBoxContainer/Dialouge Inner editor"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 7 )
+
+[node name="select area group" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Area Editor"]
+margin_right = 312.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Area Editor/select area group"]
+margin_top = 3.0
+margin_right = 116.0
+margin_bottom = 17.0
+text = "Select area to edit"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/Dialouge Inner editor/Area Editor/select area group"]
+margin_left = 120.0
+margin_right = 235.0
+margin_bottom = 20.0
+text = "example area"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="HBoxContainer/Dialouge Inner editor/Area Editor/select area group"]
+margin_left = 239.0
+margin_right = 312.0
+margin_bottom = 20.0
+text = "New Area"
+
+[node name="edit name and code" type="GridContainer" parent="HBoxContainer/Dialouge Inner editor/Area Editor"]
+margin_top = 24.0
+margin_right = 312.0
+margin_bottom = 76.0
+columns = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Area Editor/edit name and code"]
+margin_top = 5.0
+margin_right = 90.0
+margin_bottom = 19.0
+text = "Internal name"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Area Editor/edit name and code"]
+margin_left = 94.0
+margin_right = 152.0
+margin_bottom = 24.0
+
+[node name="Label2" type="Label" parent="HBoxContainer/Dialouge Inner editor/Area Editor/edit name and code"]
+margin_top = 33.0
+margin_right = 90.0
+margin_bottom = 47.0
+text = "Code"
+
+[node name="LineEdit2" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Area Editor/edit name and code"]
+margin_left = 94.0
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 52.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Area Editor"]
+margin_top = 80.0
+margin_right = 312.0
+margin_bottom = 158.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Area Editor/VBoxContainer"]
+margin_right = 312.0
+margin_bottom = 14.0
+text = "Description"
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/Dialouge Inner editor/Area Editor/VBoxContainer"]
+margin_top = 18.0
+margin_right = 312.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 120, 60 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Area Editor"]
+margin_top = 162.0
+margin_right = 312.0
+margin_bottom = 262.0
+
+[node name="Background container" type="AspectRatioContainer" parent="HBoxContainer/Dialouge Inner editor/Area Editor/HBoxContainer"]
+margin_right = 177.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 177, 100 )
+ratio = 1.778
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Dialouge Inner editor/Area Editor/HBoxContainer/Background container"]
+margin_left = -0.400002
+margin_right = 177.4
+margin_bottom = 100.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/Dialouge Inner editor/Area Editor/HBoxContainer"]
+margin_left = 181.0
+margin_right = 300.0
+margin_bottom = 100.0
+text = "Load background"
+
+[node name="Book Settings" type="Control" parent="HBoxContainer/Dialouge Inner editor"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,67 +155,67 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Settings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Book Settings"]
 margin_right = 892.0
 margin_bottom = 464.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer"]
 margin_right = 892.0
 margin_bottom = 24.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer"]
 margin_top = 5.0
 margin_right = 140.0
 margin_bottom = 19.0
 text = "Dialogue/book name: "
 
-[node name="DialogueName" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer"]
+[node name="DialogueName" type="LineEdit" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer"]
 margin_left = 144.0
 margin_right = 202.0
 margin_bottom = 24.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer"]
 margin_top = 28.0
 margin_right = 892.0
 margin_bottom = 48.0
 
-[node name="LoadAudiofile" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2"]
+[node name="LoadAudiofile" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer2"]
 margin_right = 101.0
 margin_bottom = 20.0
 text = "Load audiofile"
 
-[node name="TestAudioFull" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2"]
+[node name="TestAudioFull" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer2"]
 margin_left = 105.0
 margin_right = 170.0
 margin_bottom = 20.0
 text = "Testplay"
 
-[node name="AudioStop" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2"]
+[node name="AudioStop" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer2"]
 margin_left = 174.0
 margin_right = 214.0
 margin_bottom = 20.0
 text = "stop"
 
-[node name="AudioPath" type="Label" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2"]
+[node name="AudioPath" type="Label" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer2"]
 margin_left = 218.0
 margin_top = 3.0
 margin_right = 218.0
 margin_bottom = 17.0
 
-[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer"]
 margin_top = 52.0
 margin_right = 892.0
 margin_bottom = 83.0
 text = "Wild raw text input area.
 Write or drag'n'drop textfile here"
 
-[node name="wildText" type="TextEdit" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer"]
+[node name="wildText" type="TextEdit" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer"]
 margin_top = 87.0
 margin_right = 892.0
 margin_bottom = 387.0
@@ -115,29 +226,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WildTextHandlers" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer"]
+[node name="WildTextHandlers" type="HBoxContainer" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer"]
 margin_top = 391.0
 margin_right = 892.0
 margin_bottom = 411.0
 
-[node name="Clear_Wildcard" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/WildTextHandlers"]
+[node name="Clear_Wildcard" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/WildTextHandlers"]
 margin_right = 44.0
 margin_bottom = 20.0
 text = "Clear"
 
-[node name="Load_Audacity_labels" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/WildTextHandlers"]
+[node name="Load_Audacity_labels" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/WildTextHandlers"]
 margin_left = 48.0
 margin_right = 209.0
 margin_bottom = 20.0
 text = "Load as Audacity labels"
 
-[node name="Err label label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer"]
+[node name="Err label label" type="Label" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer"]
 margin_top = 415.0
 margin_right = 892.0
 margin_bottom = 429.0
 text = "Any errors will show below"
 
-[node name="Label2" type="Label" parent="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer"]
+[node name="Label2" type="Label" parent="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer"]
 margin_top = 433.0
 margin_right = 892.0
 margin_bottom = 464.0
@@ -145,7 +256,7 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "Error: no error
 (this is a joke)"
 
-[node name="LoadAudio" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Settings"]
+[node name="LoadAudio" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Book Settings"]
 margin_right = 892.0
 margin_bottom = 562.0
 rect_min_size = Vector2( 300, 105 )
@@ -159,7 +270,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Dialogue_edit_file_ops" type="Control" parent="HBoxContainer/Dialouge Inner editor/Settings"]
+[node name="Dialogue_edit_file_ops" type="Control" parent="HBoxContainer/Dialouge Inner editor/Book Settings"]
 margin_top = 468.0
 margin_right = 892.0
 margin_bottom = 568.0
@@ -169,7 +280,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Load_Dialogue" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops"]
+[node name="Load_Dialogue" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops"]
 visible = true
 margin_left = -539.977
 margin_top = -363.851
@@ -187,7 +298,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Save_Dialogue" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops"]
+[node name="Save_Dialogue" type="FileDialog" parent="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops"]
 visible = true
 margin_left = -527.164
 margin_top = -96.5203
@@ -203,43 +314,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="File operations" type="GridContainer" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops"]
+[node name="File operations" type="GridContainer" parent="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 591.417
-margin_top = -471.48
-margin_right = 0.41687
-margin_bottom = -487.48
+margin_left = 593.934
+margin_top = -472.109
+margin_right = 2.93396
+margin_bottom = -488.109
 columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="New Dialogue" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations"]
-margin_right = 100.0
+[node name="New Dialogue" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations"]
+margin_right = 76.0
 margin_bottom = 20.0
-text = "New Dialogue"
+text = "New Book"
 
-[node name="Load External" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations"]
-margin_left = 104.0
-margin_right = 201.0
+[node name="Load External" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations"]
+margin_left = 80.0
+margin_right = 157.0
 margin_bottom = 20.0
-text = "Load External"
+text = "Load book"
 
-[node name="Save External" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations"]
-margin_left = 205.0
-margin_right = 301.0
+[node name="Save External" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations"]
+margin_left = 161.0
+margin_right = 238.0
 margin_bottom = 20.0
-text = "Save External"
+text = "Save Book"
 
-[node name="Load Internal" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations"]
+[node name="Load Internal" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations"]
 visible = false
 margin_top = 72.0
 margin_right = 100.0
 margin_bottom = 92.0
 text = "Load Internal"
 
-[node name="Save Internal" type="Button" parent="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations"]
+[node name="Save Internal" type="Button" parent="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations"]
 visible = false
 margin_top = 72.0
 margin_right = 100.0
@@ -247,6 +358,7 @@ margin_bottom = 92.0
 text = "Save Internal"
 
 [node name="Edit book" type="Control" parent="HBoxContainer/Dialouge Inner editor"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -1263,19 +1375,19 @@ __meta__ = {
 }
 
 [connection signal="on_new_book" from="HBoxContainer/Dialouge Inner editor" to="HBoxContainer/Dialouge Inner editor/Edit Attributes" method="_on_new_book"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2/LoadAudiofile" to="HBoxContainer/Dialouge Inner editor" method="_on_LoadAudiofile_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2/TestAudioFull" to="HBoxContainer/Dialouge Inner editor" method="_on_TestAudioFull_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/HBoxContainer2/AudioStop" to="HBoxContainer/Dialouge Inner editor" method="_on_AudioStop_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/WildTextHandlers/Clear_Wildcard" to="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/wildText" method="_on_Clear_Wildcard_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/VBoxContainer/WildTextHandlers/Load_Audacity_labels" to="HBoxContainer/Dialouge Inner editor" method="_on_Load_Audacity_labels_pressed"]
-[connection signal="file_selected" from="HBoxContainer/Dialouge Inner editor/Settings/LoadAudio" to="HBoxContainer/Dialouge Inner editor" method="_on_LoadAudio_file_selected"]
-[connection signal="file_selected" from="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/Load_Dialogue" to="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops" method="_on_Load_Dialogue_file_selected"]
-[connection signal="file_selected" from="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/Save_Dialogue" to="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops" method="_on_Save_Dialogue_file_selected"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations/New Dialogue" to="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops" method="_on_New_Dialogue_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations/Load External" to="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops" method="_on_Load_External_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations/Save External" to="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops" method="_on_Save_External_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations/Load Internal" to="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops" method="_on_Load_Internal_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops/File operations/Save Internal" to="HBoxContainer/Dialouge Inner editor/Settings/Dialogue_edit_file_ops" method="_on_Save_Internal_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer2/LoadAudiofile" to="HBoxContainer/Dialouge Inner editor" method="_on_LoadAudiofile_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer2/TestAudioFull" to="HBoxContainer/Dialouge Inner editor" method="_on_TestAudioFull_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/HBoxContainer2/AudioStop" to="HBoxContainer/Dialouge Inner editor" method="_on_AudioStop_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/WildTextHandlers/Clear_Wildcard" to="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/wildText" method="_on_Clear_Wildcard_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/VBoxContainer/WildTextHandlers/Load_Audacity_labels" to="HBoxContainer/Dialouge Inner editor" method="_on_Load_Audacity_labels_pressed"]
+[connection signal="file_selected" from="HBoxContainer/Dialouge Inner editor/Book Settings/LoadAudio" to="HBoxContainer/Dialouge Inner editor" method="_on_LoadAudio_file_selected"]
+[connection signal="file_selected" from="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/Load_Dialogue" to="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops" method="_on_Load_Dialogue_file_selected"]
+[connection signal="file_selected" from="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/Save_Dialogue" to="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops" method="_on_Save_Dialogue_file_selected"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations/New Dialogue" to="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops" method="_on_New_Dialogue_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations/Load External" to="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops" method="_on_Load_External_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations/Save External" to="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops" method="_on_Save_External_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations/Load Internal" to="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops" method="_on_Load_Internal_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops/File operations/Save Internal" to="HBoxContainer/Dialouge Inner editor/Book Settings/Dialogue_edit_file_ops" method="_on_Save_Internal_pressed"]
 [connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Edit book/VBoxContainer/Dialogue editor panel/Controller/prev" to="HBoxContainer/Dialouge Inner editor" method="_on_prev_line"]
 [connection signal="pressed" from="HBoxContainer/Dialouge Inner editor/Edit book/VBoxContainer/Dialogue editor panel/Controller/next" to="HBoxContainer/Dialouge Inner editor" method="_on_next_line"]
 [connection signal="text_changed" from="HBoxContainer/Dialouge Inner editor/Edit book/VBoxContainer/Dialogue editor panel/VBoxContainer/Character_name" to="HBoxContainer/Dialouge Inner editor" method="_on_Character_name_text_changed"]

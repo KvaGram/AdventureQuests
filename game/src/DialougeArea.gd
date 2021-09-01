@@ -1,3 +1,5 @@
+###OBSOLETE - TO BE DELETED
+
 extends CanvasLayer
 
 var data:DialogueData

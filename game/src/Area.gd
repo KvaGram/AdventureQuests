@@ -1,3 +1,5 @@
+###OBSOLETE - TO BE DELETED
+
 extends Control
 
 ### The Area view is the core of the questing experience.

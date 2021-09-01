@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://src/Area.gd" type="Script" id=1]
-[ext_resource path="res://src/Dialouge area.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/areas/unknown/unknown_area.tres" type="Resource" id=3]
+[ext_resource path="res://src/Book_display.gd" type="Script" id=1]
+[ext_resource path="res://src/SoundIconPlay.png" type="Texture" id=4]
+[ext_resource path="res://src/SoundIconMute.png" type="Texture" id=5]
+[ext_resource path="res://src/Dialouge chat box.png" type="Texture" id=6]
+[ext_resource path="res://src/areas/unknown/unknown.mp3" type="AudioStream" id=7]
 
 [sub_resource type="Image" id=3]
 data = {
@@ -18,7 +20,7 @@ storage = 2
 image = SubResource( 3 )
 size = Vector2( 500, 500 )
 
-[node name="Area" type="Control"]
+[node name="Book_display" type="Control"]
 margin_top = 36.0
 margin_right = 1024.0
 margin_bottom = 636.0
@@ -27,9 +29,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-fallbackArea = ExtResource( 3 )
-
-[node name="Dialouge area" parent="." instance=ExtResource( 2 )]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -39,3 +38,73 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Dialouge area2" type="CanvasLayer" parent="."]
+
+[node name="Dialouge box" type="NinePatchRect" parent="Dialouge area2"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.141418
+margin_top = -88.1943
+margin_right = -0.141418
+margin_bottom = -11.1943
+texture = ExtResource( 6 )
+region_rect = Rect2( -1.31653, -1.51913, 601.766, 451.874 )
+patch_margin_left = 37
+patch_margin_top = 40
+patch_margin_right = 35
+patch_margin_bottom = 37
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character name" type="RichTextLabel" parent="Dialouge area2/Dialouge box"]
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 182.0
+margin_bottom = 28.0
+text = "Name Namerson the Third"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialouge" type="RichTextLabel" parent="Dialouge area2/Dialouge box"]
+margin_left = 26.0
+margin_top = 25.0
+margin_right = 983.0
+margin_bottom = 67.0
+text = "Stand up, all victims of oppression For the tyrants fear your might! Don't cling so hard to your possessions For you have nothing if you have no rights!
+Let racist ignorance be ended For respect makes the empires fall! Freedom is merely privilege extended Unless enjoyed by one and all"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Dialouge area2/Dialouge box"]
+margin_left = 983.574
+margin_top = 51.363
+margin_right = 1018.57
+margin_bottom = 71.363
+text = "--->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueAudio" type="AudioStreamPlayer" parent="Dialouge area2"]
+stream = ExtResource( 7 )
+
+[node name="muteButton" type="TextureButton" parent="Dialouge area2"]
+margin_left = 4.1684
+margin_top = 474.888
+margin_right = 37.1684
+margin_bottom = 512.888
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Dialouge area2/Dialouge box/NextButton" to="Dialouge area2" method="nextLine"]
+[connection signal="toggled" from="Dialouge area2/muteButton" to="Dialouge area2" method="set_mute"]

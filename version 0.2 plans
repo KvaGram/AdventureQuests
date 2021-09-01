@@ -1,0 +1,58 @@
+Adventurequest
+new structure in code.
+
+When entering a location, a book object is opened.
+A book object contains the following:
+* Array of image assets
+* Array of audio assets
+* Array of video assets   (will not be implemented in these notes)
+* Array of book assets (other books)
+* Array of pages
+
+Any of the above may be empty.
+
+When displaying the contents of a book, the following may be manipulated:
+* Background image
+* Foreground image
+* Background audio (looped)
+* Foreground audio (played once)
+* Foreground playrange (start and end)
+* Display text
+* Choices
+
+When playrange is defined, the foreground audio shall play the defined start and end, defined in secunds.
+The choice-menu is always shown, when no choices are defined, or none are enabled, a default "next page" choice shall be visible.
+ 
+
+A page object must contain the following:
+* Multiline string of Text
+
+It may also contain the following:
+* Array of choices
+* size-2 table of start and end of foreground audio
+* Background image to display
+* Foreground image to display
+* Background audio to play
+* Foreground audio to play
+* Identification tag
+
+If the start and end object is missing, no foreground audio will be played.
+If any image or audio object is missing, the previusly set object will remain in use.
+IMPORTANT: image and audio objects must be defined at some point to be used.
+
+Choices are the most programmable part of a page, and thus a book.
+A choice contain an array of attributes.
+
+An attribute may be one of the following types:
+* A variable condition
+* A varible setter
+* A book loader
+* A set page
+* A hidden flag
+
+A varible is always globally accesable, so use of underscores are wise as a way of defining scopes.
+PLANNED: use of item_ scope for items the player may have in inventory.
+An attribute object is an array of values, where the first value defines the type, and any following define the arguments/values.
+A choice is considered disabled if any condition attribute were to return a negative.
+If a hidden flag is present, the choice shall not be visible if disabled.
+

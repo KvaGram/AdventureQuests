@@ -8,10 +8,15 @@ class_name DialogueData
 
 #dialogue lines
 export var lines = []
-#conditions for showing this dialogue
-export var conditions = []
-#Name to display, if ever needed to select from a list
+
+#Name to display, if ever needed to select from a list or something
 export var name = ""
+
+#Texture resources to display
+export var images = []
+
+#Other books
+export var books = []
 
 export var audio:AudioStream
 
@@ -23,6 +28,8 @@ func addLine(index = -1):
 	newline["audio_start"] = 0.0
 	newline["audio_end"] = 0.0 
 	newline["choices"] = {}
+	newline["set_image"] = []
+	
 	
 	#if index is valid, insert it there.
 	if index >= 0 && index < lines.size():

@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/editor/AttributeEditor.gd"
 }, {
+"base": "Control",
+"class": "Book_display",
+"language": "GDScript",
+"path": "res://src/Book_display.gd"
+}, {
 "base": "Resource",
 "class": "DialogueData",
 "language": "GDScript",
@@ -43,6 +48,7 @@ _global_script_class_icons={
 "AreaData": "",
 "AreaList": "",
 "AttributeEditor": "",
+"Book_display": "",
 "DialogueData": "",
 "DialogueEditor": "",
 "KvaTools": ""
