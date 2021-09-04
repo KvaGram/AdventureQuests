@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Second hive made by original Herbabot. Its primary objective is to run Herbabot news. Doing this, Dandelion has gotten a much closer connection to the people of Tenebrae. Its effect on the hivemind overall acts as a counterpoint to the belligerent nature started by Cornflower hive.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791136.json",
+	"mirror_portraits": false,
+	"name": "Dandelion",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

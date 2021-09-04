@@ -15,6 +15,12 @@
 			"name": "Area",
 			"type": 0,
 			"value": ""
+		},
+		{
+			"id": "1630790714-648",
+			"name": "apiary_burgular_progress",
+			"type": 0,
+			"value": "0"
 		}
 	]
 }

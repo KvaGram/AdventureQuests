@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "This farmgirl is used to thinking differently. After all, her family is not exactly \"normal\", if there is such a thing.\nShe has two dads. So what? Their names are Dennis and Bart. Well, Bart is her \"real\" dad, for those old farts who think that really matters. Bart had a thing with Amber before he met Dennis, and that's how Krystal came to be. That's all there is to it. Amber just gave birth to her, it's not like she is her \"mom\". When growing up, the only other kid around was her adoptive brother.. or uncle? It's confusing at times, but Krystal generally thinks of Tim as her big brother. \nSo when Krystal finds a new unusual friend, she thinks little of it, and only tells her brother.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630790922.json",
+	"mirror_portraits": false,
+	"name": "Krystal the farmgirl",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

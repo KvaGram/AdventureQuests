@@ -1,6 +1,6 @@
 extends Control
-var editorPath = "res://src/editor/DialougeEditor.tscn"
-var textline;
+var editorPath = "null" # = "res://src/editor/DialougeEditor.tscn"
+var area_list:AreaList
 #var dialogic:Dialogic
 
 # Declare member variables here. Examples:
@@ -10,14 +10,12 @@ var textline;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	textline = get_node("testsave/textline")
+	area_list = ResourceLoader.load("res://src/resources/areas/AreaList.tres")
 	if ResourceLoader.exists(editorPath):
-		$"VBoxContainer/button bar/HBoxContainer/open editor".disabled = false
+		$"Buttonmenu/button bar/HBoxContainer/open editor".disabled = false
 	else:
-		$"VBoxContainer/button bar/HBoxContainer/open editor".disabled = true
+		$"Buttonmenu/button bar/HBoxContainer/open editor".disabled = true
 	$"dev_build_alert".popup_centered()
-	
-	#dialogic = Dialogic.new()
 	
 	
 func save():
@@ -35,7 +33,10 @@ func _on_open_editor_pressed():
 		get_tree().change_scene(editorPath)
 
 
-func onPassEntered(new_text):
-	#stub
-	Dialogic.start("unknown_area")
-	pass # Replace with function body.
+func onPassEntered(passkey):
+	var data : AreaData = area_list.getArea(passkey)
+	
+	$"Buttonmenu/AskAreaPass".hide()
+	var dialog:CanvasLayer = Dialogic.start(data.timeline_name)
+	add_child(dialog)
+	$dummy.grab_focus()

@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Well Dennis? Yeah, he is a bit of a wildcard. He takes care of the animals in the barn. And his little brother Tim. Well emphasis on little. Ever since their parents passed, Dennis has taken care of little Tim. Like the father Tim never got to know, poor guy.\nWhen the two cowpokes arrived at Herbaburg, he got to stay at the local farmer's house for the night, Ben was his name. After the night, where he slept close, very close, to the farmer's son, Bart. One thing led to another, and one night led to many. Old Ben eventually decided to move out. The old man was not happy about it all.\nSo Dennis ended up marrying Bart, and is now raising Bart's daughter, Krystal, together with little Tim. It's an awkward family, but it is one made out of love.\n",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630790967.json",
+	"mirror_portraits": false,
+	"name": "Dennis the Cowboy",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

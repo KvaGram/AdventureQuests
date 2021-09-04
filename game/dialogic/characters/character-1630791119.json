@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Herbabot is (mostly) one mind. Herbabot is one truth. Herbabot knows what is best. Herbabot must rule all. That is what Herbabot believes. Though the big question is, is he right?",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791119.json",
+	"mirror_portraits": false,
+	"name": "Herbabot hivemind",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

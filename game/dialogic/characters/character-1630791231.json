@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Established by Dandelion following the interview with StealYoKills, in fear of a future open conflict with the Storm Masters. Algae is located in a dome underwater. Algae's primary function is to research water resistance and underwater propulsion technology for beebots. This need was underlined during the very construction of the hive's dome, as bee-bots sent to install the dome barely lasted long enough to finish the job before failing.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791231.json",
+	"mirror_portraits": false,
+	"name": "Algae",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

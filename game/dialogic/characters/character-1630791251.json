@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Working on the last instructions it received from Cornflower and Dandelion, a small swarm of bee-bots rescued seven personality sub-hives from Cornflower. Two were destroyed by Storm Masters in the retreat, four more managed to retreat to Dandelion island, but the last sub-hive, transported by three bee-bots, got lost.\nHaving lost connection with the hivemind, the sub-hive eventually took control of the three bots. With a damaged memory, and a severe lack of bees, this sub-hive knew little of who or what it was, all it knew, was that it needed more bees.\nStumbling into Herbaburg, it found the bees it needed.\n",
+	"display_name": "Lost Herbabot hive",
+	"display_name_bool": true,
+	"id": "character-1630791251.json",
+	"mirror_portraits": false,
+	"name": "Nomad",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

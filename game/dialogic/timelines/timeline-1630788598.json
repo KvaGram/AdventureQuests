@@ -1,0 +1,74 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello, and welcome to the cheatzone. Come in, come in."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "So. What can I do for you?"
+		},
+		{
+			"choice": "Go somewhere",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Alright. There are currently just 2 places for you to go. Later we will need to narrow this down, but for now, this is it."
+		},
+		{
+			"choice": "Cheatzone",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yes, really. This really just sends you back here. Clever, huh? Well, see you in a secund."
+		},
+		{
+			"change_timeline": "timeline-1630788598.json",
+			"event_id": "dialogic_020"
+		},
+		{
+			"choice": "Unknown area",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"change_timeline": "timeline-1630501601.json",
+			"event_id": "dialogic_020"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1630788598.json",
+		"name": "cheatzone"
+	}
+}

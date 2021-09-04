@@ -5,7 +5,7 @@ extends PopupPanel
 # var a = 2
 # var b = "text"
 
-var passline;
+var passline:LineEdit;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,12 +20,9 @@ func _ready():
 #make sure the passline is always clear
 func _on_AskAreaPass_about_to_show():
 	passline.text = "";
+	passline.editable = true
 func _on_AskAreaPass_popup_hide():
 	passline.text = "";
+	passline.editable = false
 func onShow():
 	popup();
-
-
-func onPassEntered(_locpass):
-	
-	visible = false;

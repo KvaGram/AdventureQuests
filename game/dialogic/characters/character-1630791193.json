@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Established by Nylium, Chorus is a hive focused on scientific development. Its primary function is as a research hive, with a focus on flight and history of the End dimension.\nIts secondary function is as a factory, extracting natural resources only found in The End to produce flight-capable bee-bots.\n",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791193.json",
+	"mirror_portraits": false,
+	"name": "Chorus",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

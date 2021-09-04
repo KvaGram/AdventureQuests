@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Well old Ben may be a bit of a hothead at times, and a bit of a goof. But there is nothing more important in his life than his bees, and his niece Amber. His only remaining REAL family.\nNot like that traitor to the family, his \"son\" Bart.\nYes, he pressured Bart and Amber to get hooked up. He and his sister Eliza had agreed those two would get married when they came of age.\nBut no. Bart hooked up with a wild cowboy instead. Emphasis on \"boy\". No, Bart is no son of his. And Bart's daughter, Krystal, should live with her mother, not with her two fake dads, dammit!\nHow Amber can live without her daughter is something Ben doesn't think he will ever understand. But he loves Amber as much as he loved his late sister.\nBut of course, Rich, the spoiled brat who moved to the hamlet a few years ago, seems to want to destroy everything he has left. As if his life were not ruined enough!\n",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630790861.json",
+	"mirror_portraits": false,
+	"name": "Beekeeper Ben",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

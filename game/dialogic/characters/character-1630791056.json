@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Amber is.. well, she likes to keep herself busy, especially after the shotgun wedding her mother, Eliza and uncle Ben made her go though.\nShe doesn't blame them. Not really. she supposed from their perspective.. well, she played a lot with her cousin Bart when they were kids. They both had a good childhood. They were friends. But there was no romance. She naively thought their love would grow after marriage. It did not. She naively thought it would grow after giving birth to their daughter Krystal. It did not.\nThen Bart fell in love with a traveler, Dennis.\nShe didn't really feel much. She decided she didn't really want to be a mother.\nAnd with that, she decided that Krystal would have a better family life with her two fathers than with her. She would instead mind her old man's general store. Her father was ready to retire anyways, so she pushed it and took over. Today she is the hamlet's supplier of everything. She established a network of traders and contacts. Whatever the little hamlet needs, she can get it.\n",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791056.json",
+	"mirror_portraits": false,
+	"name": "Amber the Shopkeep",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

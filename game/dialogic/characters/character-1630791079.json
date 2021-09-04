@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Tim is a quiet type. He remembers little of the time before moving to Herbaburg, and what little there is, he tries not to think too much about. He lost his parents at a very young age. He only had his big brother Dennis left. Dennis became like a father to Tim. And Krystal his sister, making Bart his other dad. Yeah, it's an unusual family, but it works. Tim likes to hang around in the watchtower, brooding, thinking, daydreaming, writing. He doesn't like farm labor much, but by the standards of the community, he is seen as an adult now, so he can't just hide in the tower all day, can he? uh yes he can.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791079.json",
+	"mirror_portraits": false,
+	"name": "Tim the farmboy",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

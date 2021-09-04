@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "The proud father of two children, Krystal and Tim. Except, Tim is not really his, but Tim does think of him as a dad, so it matters not, he supposes. Bart is the husband of Dennis; the funniest man he ever met, at least according to himself. Bart is content in life, even if a bit troubled about his parent's disapproval of his \"life choices\". So what if his parents disapprove? Marrying a guy is better than marrying a cousin you liked but never really loved. Yeah. Amber is nice and all, but not a match for Bart. No way. At least Amber let Bart keep Krystal. Bart never understood why, but he is thankful. After all, he loves his daughter, even if he never loved his \"wife\".",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791001.json",
+	"mirror_portraits": false,
+	"name": "Bart the farmer",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

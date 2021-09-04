@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "As the first interdimensional hive, Nylium was created by Cornflower shortly after the destruction of the original Herbabot. Nylium's functions were as a weapons and defence research hive.\nThe harsh climates and wildlife of The Nether proved perfect testing grounds for experimental bee-bots. It inherited Cornflower's hatred of the existing sorcerer's structure, and after the destruction of Rose and Cornflower, it became the primary plotter and planner of the hivemind.\n",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791173.json",
+	"mirror_portraits": false,
+	"name": "Nylium",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

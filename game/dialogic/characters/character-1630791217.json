@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Established by Nylium, in a joint effort of all the hives, Azalea was designed to be the central hub of Herbabot, a true replacement for what Cornflower was. Taking over as prime personality from Dandelion. The quick and sudden dominance of Azalea caused a change in Herbabot's strategic planning, going from reactive to proactive thinking.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791217.json",
+	"mirror_portraits": false,
+	"name": "Azalea",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

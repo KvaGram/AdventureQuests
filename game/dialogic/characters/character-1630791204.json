@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Following a breakthrough of sustained bee-bot flight designs, Cacti was established by Nylium as a control-center for the Bee Tracking And Mapping Service, BeeTraMapS. It can see everything. It has very little personality of its own.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1630791204.json",
+	"mirror_portraits": false,
+	"name": "Cacti",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}
